@@ -63,9 +63,10 @@ COPY . .
 # Copy PHP deps from composer stage
 COPY --from=composer /app/vendor ./vendor
 
-# Copy built frontend assets
+# Copy built frontend assets and node_modules (needed for SSR runtime)
 COPY --from=frontend /app/public/build ./public/build
 COPY --from=frontend /app/bootstrap/ssr ./bootstrap/ssr
+COPY --from=frontend /app/node_modules ./node_modules
 
 # Entrypoint
 COPY docker/entrypoint.sh /entrypoint.sh
