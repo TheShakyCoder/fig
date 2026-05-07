@@ -28,7 +28,7 @@ RUN npx vite build && npx vite build --ssr
 
 
 # ── Stage 3: Production image ──
-FROM php:8.3-fpm-alpine
+FROM php:8.4-fpm-alpine
 
 RUN apk add --no-cache \
     nginx \
