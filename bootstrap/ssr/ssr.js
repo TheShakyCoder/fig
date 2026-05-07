@@ -674,13 +674,15 @@ createServer((page) => createInertiaApp({
 		"./Pages/Profile/Partials/DeleteUserForm.vue": () => import("./assets/DeleteUserForm-DRkL7EC4.js"),
 		"./Pages/Profile/Partials/UpdatePasswordForm.vue": () => import("./assets/UpdatePasswordForm-2Hx7NMW1.js"),
 		"./Pages/Profile/Partials/UpdateProfileInformationForm.vue": () => import("./assets/UpdateProfileInformationForm-BFg_cRnB.js"),
-		"./Pages/Welcome.vue": () => import("./assets/Welcome-BOWwarmn.js")
+		"./Pages/Welcome.vue": () => import("./assets/Welcome-CtH1P2hH.js")
 	})),
 	setup({ App, props, plugin }) {
-		return createSSRApp({ render: () => h(App, props) }).use(plugin).use(M, {
+		const app = createSSRApp({ render: () => h(App, props) }).use(plugin);
+		if (page.props.ziggy) app.use(M, {
 			...page.props.ziggy,
 			location: new URL(page.props.ziggy.location)
 		});
+		return app;
 	}
 }));
 //#endregion

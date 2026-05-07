@@ -1,5 +1,6 @@
 <script setup>
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, useForm } from '@inertiajs/vue3';
+import { ref } from 'vue';
 
 defineProps({
     canLogin: {
@@ -9,6 +10,25 @@ defineProps({
         type: Boolean,
     },
 });
+
+const form = useForm({
+    name: '',
+    email: '',
+    postcode: '',
+    message: '',
+});
+
+const submitted = ref(false);
+
+const submit = () => {
+    form.post('/contact', {
+        preserveScroll: true,
+        onSuccess: () => {
+            submitted.value = true;
+            form.reset();
+        },
+    });
+};
 </script>
 
 <template>
@@ -26,21 +46,21 @@ defineProps({
                     <template v-if="canLogin">
                         <Link
                             v-if="$page.props.auth.user"
-                            :href="route('dashboard')"
+                            href="/dashboard"
                             class="text-sm text-gray-400 transition hover:text-white"
                         >
                             Dashboard
                         </Link>
                         <template v-else>
                             <Link
-                                :href="route('login')"
+                                href="/login"
                                 class="text-sm text-gray-400 transition hover:text-white"
                             >
                                 Log in
                             </Link>
                             <Link
                                 v-if="canRegister"
-                                :href="route('register')"
+                                href="/register"
                                 class="rounded-lg bg-emerald-500 px-4 py-2 text-sm font-medium text-gray-950 transition hover:bg-emerald-400"
                             >
                                 Get Started
@@ -220,19 +240,170 @@ defineProps({
             </div>
         </section>
 
+        <!-- About -->
+        <section id="about" class="border-t border-white/5 py-20 sm:py-28">
+            <div class="mx-auto max-w-6xl px-6">
+                <div class="grid items-center gap-12 sm:grid-cols-2">
+                    <div>
+                        <p class="mb-4 inline-block rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1 text-xs font-medium uppercase tracking-widest text-emerald-400">
+                            About Us
+                        </p>
+                        <h2 class="text-2xl font-bold text-white sm:text-3xl">Fig Limited</h2>
+                        <p class="mt-4 text-sm leading-relaxed text-gray-400">
+                            We're a small, UK-based web studio that believes great websites shouldn't cost a fortune. Founded with a simple idea — build honest, well-crafted sites for businesses that just want something that works.
+                        </p>
+                        <p class="mt-4 text-sm leading-relaxed text-gray-400">
+                            No jargon, no upsells, no 47-page proposals. We sit down, listen to what you need, and build it. Every site we deliver is hand-coded, fast, and designed to look good for years — not months.
+                        </p>
+                        <p class="mt-4 text-sm leading-relaxed text-gray-400">
+                            Whether you're a sole trader who needs a single page or a growing business that wants something more, we keep things simple so you can focus on what you do best.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="rounded-2xl border border-white/5 bg-gray-900 p-6 text-center">
+                            <p class="mt-1 text-xs text-gray-500">Years in business</p>
+                            <p class="text-2xl font-bold text-emerald-400">25+</p>
+                        </div>
+                        <div class="rounded-2xl border border-white/5 bg-gray-900 p-6 text-center">
+                            <p class="mt-1 text-xs text-gray-500">Based & Registered</p>
+                            <p class="text-2xl font-bold text-emerald-400">Preston</p>
+                        </div>
+                        <div class="rounded-2xl border border-white/5 bg-gray-900 p-6 text-center">
+                            <p class="mt-1 text-xs text-gray-500">Practicing</p>
+                            <p class="text-2xl font-bold text-emerald-400">People-First</p>
+                        </div>
+                        <div class="rounded-2xl border border-white/5 bg-gray-900 p-6 text-center">
+                            <p class="mt-1 text-xs text-gray-500">Supporting</p>
+                            <p class="text-2xl font-bold text-emerald-400">Small Businesses</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CTA / Contact -->
         <section id="contact" class="border-t border-white/5 bg-gray-900/50 py-20 sm:py-28">
-            <div class="mx-auto max-w-2xl px-6 text-center">
-                <h2 class="text-2xl font-bold text-white sm:text-3xl">Ready to get started?</h2>
-                <p class="mt-4 text-gray-400">
-                    Drop us a message and we'll get back to you within 24 hours. No pressure, no hard sell.
-                </p>
-                <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                    <a
-                        href="mailto:hello@fig.uk"
-                        class="w-full rounded-lg bg-emerald-500 px-8 py-3.5 text-center text-sm font-semibold text-gray-950 shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-400 hover:shadow-emerald-500/30 sm:w-auto"
-                    >
-                        Get In Touch
+            <div class="mx-auto max-w-xl px-6">
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold text-white sm:text-3xl">Ready to get started?</h2>
+                    <p class="mt-4 text-gray-400">
+                        Drop us a message and we'll get back to you within 24 hours.
+                    </p>
+                </div>
+
+                <!-- Chat-style contact form -->
+                <div class="mt-10 overflow-hidden rounded-2xl border border-white/5 bg-gray-900">
+                    <!-- Chat header -->
+                    <div class="flex items-center gap-3 border-b border-white/5 px-5 py-4">
+                        <div class="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/10">
+                            <span class="text-sm font-bold text-emerald-400">f.</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-white">Fig</p>
+                            <p class="text-xs text-emerald-400">We typically reply within a few hours</p>
+                        </div>
+                    </div>
+
+                    <!-- Chat body -->
+                    <div class="px-5 py-6">
+                        <!-- Fig's greeting bubble -->
+                        <div class="mb-6 flex items-start gap-3">
+                            <div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-emerald-500/10 mt-0.5">
+                                <span class="text-[10px] font-bold text-emerald-400">f.</span>
+                            </div>
+                            <div class="rounded-2xl rounded-tl-sm bg-gray-800 px-4 py-3">
+                                <p class="text-sm text-gray-300">Hi there! Tell us a bit about what you need and we'll get back to you.</p>
+                            </div>
+                        </div>
+
+                        <Transition
+                            enter-active-class="transition duration-300 ease-out"
+                            enter-from-class="opacity-0 translate-y-2"
+                            enter-to-class="opacity-100 translate-y-0"
+                        >
+                            <!-- Success state -->
+                            <div v-if="submitted" class="rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-6 text-center">
+                                <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/20">
+                                    <svg class="h-6 w-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                    </svg>
+                                </div>
+                                <p class="text-lg font-semibold text-white">Message sent!</p>
+                                <p class="mt-1 text-sm text-emerald-300/70">Thanks! We've got your message and will be in touch soon.</p>
+                            </div>
+                        </Transition>
+
+                        <!-- Form (user's reply) -->
+                        <form v-if="!submitted" @submit.prevent="submit" class="space-y-3">
+                            <div class="flex gap-3">
+                                <input
+                                    v-model="form.name"
+                                    type="text"
+                                    placeholder="Your name"
+                                    required
+                                    class="w-1/2 rounded-xl border border-white/10 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 transition focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50"
+                                />
+                                <input
+                                    v-model="form.email"
+                                    type="email"
+                                    placeholder="your@email.com"
+                                    required
+                                    class="w-1/2 rounded-xl border border-white/10 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 transition focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50"
+                                />
+                            </div>
+                            <input
+                                v-model="form.postcode"
+                                type="text"
+                                placeholder="Your postcode"
+                                class="w-full rounded-xl border border-white/10 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 transition focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50"
+                            />
+                            <p class="text-sm text-gray-500">If you're based in the Penwortham area, we'd love to come and visit you.</p>
+                            <div class="relative">
+                                <textarea
+                                    v-model="form.message"
+                                    rows="3"
+                                    placeholder="Tell us about your project..."
+                                    class="w-full resize-none rounded-xl border border-white/10 bg-gray-800 px-4 py-3 pr-14 text-sm text-white placeholder-gray-500 transition focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50"
+                                ></textarea>
+                                <button
+                                    type="submit"
+                                    :disabled="form.processing"
+                                    class="absolute bottom-3 right-3 flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500 text-gray-950 transition hover:bg-emerald-400 disabled:opacity-50"
+                                >
+                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <p v-if="form.errors.name || form.errors.email || form.errors.postcode || form.errors.message" class="text-xs text-red-400">
+                                {{ form.errors.name || form.errors.email || form.errors.postcode || form.errors.message }}
+                            </p>
+                        </form>
+                    </div>
+                </div>
+                <!-- Contact details -->
+                <div class="mt-10 grid gap-4 sm:grid-cols-2">
+                    <a href="mailto:support@fig.limited" class="flex items-center gap-4 rounded-2xl border border-white/5 bg-gray-900 p-5 transition hover:border-white/10">
+                        <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-500/10">
+                            <svg class="h-5 w-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500">Email us</p>
+                            <p class="text-sm font-medium text-white">support@fig.limited</p>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/447515382159" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 rounded-2xl border border-white/5 bg-gray-900 p-5 transition hover:border-white/10">
+                        <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-500/10">
+                            <svg class="h-5 w-5 text-emerald-400" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500">WhatsApp</p>
+                            <p class="text-sm font-medium text-white">07515 382159</p>
+                        </div>
                     </a>
                 </div>
             </div>
