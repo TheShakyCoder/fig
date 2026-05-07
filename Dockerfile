@@ -1,36 +1,39 @@
-# ── Stage 1: Build frontend assets ──
-FROM node:20-alpine AS frontend
-
-WORKDIR /app
-
-COPY package.json package-lock.json ./
-RUN npm ci
-
-COPY . .
-RUN npm run build && npx vite build --ssr
-
-
-# ── Stage 2: Install PHP dependencies ──
+# ── Stage 1: Install PHP dependencies ──
 FROM composer:2 AS composer
 
 WORKDIR /app
 
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --no-scripts --no-interaction --prefer-dist
+RUN composer install --no-dev --no-scripts --no-interaction --prefer-dist --ignore-platform-reqs
 
 COPY . .
 RUN composer dump-autoload --optimize
 
 
+# ── Stage 2: Build frontend assets (needs vendor for Ziggy) ──
+FROM node:20-alpine AS frontend
+
+WORKDIR /app
+
+ENV NODE_ENV=development
+
+COPY package.json package-lock.json ./
+RUN npm ci
+
+COPY . .
+COPY --from=composer /app/vendor ./vendor
+
+ENV NODE_ENV=production
+RUN npx vite build && npx vite build --ssr
+
+
 # ── Stage 3: Production image ──
 FROM php:8.3-fpm-alpine
 
-# Install system deps
 RUN apk add --no-cache \
     nginx \
     supervisor \
     nodejs \
-    npm \
     curl \
     libpng-dev \
     libzip-dev \
@@ -46,7 +49,6 @@ RUN apk add --no-cache \
     opcache \
     && rm -rf /var/cache/apk/*
 
-# PHP production config
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 COPY docker/php.ini /usr/local/etc/php/conf.d/99-custom.ini
@@ -55,22 +57,20 @@ COPY docker/supervisord.conf /etc/supervisord.conf
 
 WORKDIR /var/www/html
 
-# Copy PHP deps from composer stage
-COPY --from=composer /app/vendor ./vendor
-
 # Copy app source
 COPY . .
+
+# Copy PHP deps from composer stage
+COPY --from=composer /app/vendor ./vendor
 
 # Copy built frontend assets
 COPY --from=frontend /app/public/build ./public/build
 COPY --from=frontend /app/bootstrap/ssr ./bootstrap/ssr
 
-# Set permissions
+# Permissions
 RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 775 storage bootstrap/cache
-
-# Create log dirs
-RUN mkdir -p /var/log/supervisor /var/run/nginx
+    && chmod -R 775 storage bootstrap/cache \
+    && mkdir -p /var/log/supervisor /var/run/nginx
 
 EXPOSE 80
 
