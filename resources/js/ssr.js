@@ -4,6 +4,7 @@ import { renderToString } from '@vue/server-renderer';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createSSRApp, h } from 'vue';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
+import CookieConsent from './Components/CookieConsent.vue';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -18,7 +19,7 @@ createServer((page) =>
                 import.meta.glob('./Pages/**/*.vue'),
             ),
         setup({ App, props, plugin }) {
-            const app = createSSRApp({ render: () => h(App, props) })
+            const app = createSSRApp({ render: () => [h(App, props), h(CookieConsent)] })
                 .use(plugin);
 
             if (page.props.ziggy) {
