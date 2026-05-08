@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FlyerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::resource('businesses', BusinessController::class);
+    Route::get('/businesses/{business}/flyer', FlyerController::class)->name('businesses.flyer');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -29,5 +31,11 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+Route::get('/preview/{business}', function (\App\Models\Business $business) {
+    return \Inertia\Inertia::render('Preview', [
+        'business' => $business->only('name', 'domain'),
+    ]);
+})->name('preview');
 
 require __DIR__.'/auth.php';

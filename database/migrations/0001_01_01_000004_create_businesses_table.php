@@ -12,11 +12,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('domain')->nullable();
-            $table->string('owner_name');
             $table->string('email');
             $table->string('phone')->nullable();
-            $table->enum('plan', ['self_managed', 'fig_managed'])->default('self_managed');
-            $table->enum('status', ['active', 'suspended', 'cancelled'])->default('active');
+            $table->enum('plan', ['self_managed', 'fig_managed', 'fig_developed'])->nullable();
+            $table->enum('status', ['unknown', 'active', 'suspended', 'cancelled'])->default('unknown');
             $table->text('notes')->nullable();
             $table->timestamps();
         });

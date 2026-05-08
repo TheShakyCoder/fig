@@ -17,7 +17,11 @@ watch(search, (value) => {
     });
 });
 
-const planLabel = (plan) => plan === 'fig_managed' ? 'Fig Managed' : 'Self Managed';
+const planLabel = (plan) => ({
+    self_managed: 'Self Managed',
+    fig_managed: 'Fig Managed',
+    fig_developed: 'Fig Developed',
+}[plan] || '—');
 
 const statusColor = (status) => ({
     active: 'bg-emerald-500/10 text-emerald-400',
@@ -77,7 +81,7 @@ const destroy = (id) => {
                             <tr>
                                 <th class="px-6 py-4">Name</th>
                                 <th class="px-6 py-4 hidden sm:table-cell">Domain</th>
-                                <th class="px-6 py-4 hidden md:table-cell">Owner</th>
+                                <th class="px-6 py-4 hidden md:table-cell">Email</th>
                                 <th class="px-6 py-4 hidden lg:table-cell">Plan</th>
                                 <th class="px-6 py-4">Status</th>
                                 <th class="px-6 py-4 text-right">Actions</th>
@@ -101,7 +105,7 @@ const destroy = (id) => {
                                     {{ business.domain || '—' }}
                                 </td>
                                 <td class="px-6 py-4 text-gray-400 hidden md:table-cell">
-                                    {{ business.owner_name }}
+                                    {{ business.email }}
                                 </td>
                                 <td class="px-6 py-4 hidden lg:table-cell">
                                     <span class="text-gray-400">{{ planLabel(business.plan) }}</span>

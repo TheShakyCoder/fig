@@ -6,7 +6,11 @@ const props = defineProps({
     business: Object,
 });
 
-const planLabel = (plan) => plan === 'fig_managed' ? 'Fig Managed — £200/month' : 'Self Managed — £20/month';
+const planLabel = (plan) => ({
+    self_managed: 'Self Managed — £20/month',
+    fig_managed: 'Fig Managed — £50/month',
+    fig_developed: 'Fig Developed — £200/month',
+}[plan] || '—');
 
 const statusColor = (status) => ({
     active: 'bg-emerald-500/10 text-emerald-400',
@@ -31,6 +35,12 @@ const destroy = () => {
                     {{ business.name }}
                 </h2>
                 <div class="flex items-center gap-3">
+                    <a
+                        :href="route('businesses.flyer', business.id)"
+                        class="rounded-xl bg-emerald-500 px-4 py-2 text-sm font-semibold text-gray-950 transition hover:bg-emerald-400"
+                    >
+                        Download Flyer
+                    </a>
                     <Link
                         :href="route('businesses.edit', business.id)"
                         class="rounded-xl border border-white/10 bg-gray-800 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-700"
@@ -69,10 +79,6 @@ const destroy = () => {
                                     </a>
                                     <span v-else class="text-gray-600">—</span>
                                 </dd>
-                            </div>
-                            <div>
-                                <dt class="text-sm text-gray-500">Owner</dt>
-                                <dd class="mt-1 text-white">{{ business.owner_name }}</dd>
                             </div>
                             <div>
                                 <dt class="text-sm text-gray-500">Email</dt>

@@ -37,16 +37,31 @@ const managed = ref({
     fig: {
         options: {
             popular: false,
-            price: "£200",
-            title: "Managed by Fig",
+            price: "£50",
+            title: "Fig Managed",
             strapline:
                 "We handle all your content updates and design changes for you.",
         },
         bullets: [
             "Everything in Self Managed",
             "We update your content for you",
-            "Up to 4 hours of development time per month",
+            "Unlimited content changes",
             "Priority ticket support",
+        ],
+    },
+    developed: {
+        options: {
+            popular: false,
+            price: "£200",
+            title: "Fig Developed",
+            strapline:
+                "Bespoke development, custom features, and dedicated support.",
+        },
+        bullets: [
+            "Everything in Fig Managed",
+            "Custom development",
+            "Bespoke features & integrations",
+            "Dedicated support & performance optimisation",
         ],
     },
 });
@@ -271,15 +286,15 @@ const submit = () => {
             <div class="mx-auto max-w-6xl px-6">
                 <div class="mx-auto max-w-2xl text-center">
                     <h2 class="text-2xl font-bold text-white sm:text-3xl">
-                        Two plans, no surprises
+                        Simple, honest pricing
                     </h2>
                     <p class="mt-4 text-gray-400">
-                        Both include design, build, hosting, and SSL. Pick how
-                        you want to manage content.
+                        All plans include design, build, hosting, and SSL. Pick the
+                        level of support that suits you.
                     </p>
                 </div>
 
-                <div class="mx-auto mt-16 grid max-w-4xl gap-8 sm:grid-cols-2">
+                <div class="mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     <!-- Managed -->
                     <template v-for="plan in managed">
                         <div

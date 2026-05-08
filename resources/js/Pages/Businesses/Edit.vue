@@ -10,11 +10,10 @@ const props = defineProps({
 const form = useForm({
     name: props.business.name,
     domain: props.business.domain || '',
-    owner_name: props.business.owner_name,
     email: props.business.email,
     phone: props.business.phone || '',
-    plan: props.business.plan,
-    status: props.business.status,
+    plan: props.business.plan || 'self_managed',
+    status: props.business.status || 'active',
     notes: props.business.notes || '',
 });
 

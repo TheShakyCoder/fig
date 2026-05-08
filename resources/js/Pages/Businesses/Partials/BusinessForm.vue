@@ -46,20 +46,6 @@ defineEmits(['submit']);
                 <InputError class="mt-2" :message="form.errors.domain" />
             </div>
 
-            <!-- Owner Name -->
-            <div>
-                <InputLabel for="owner_name" value="Owner Name" />
-                <TextInput
-                    id="owner_name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    v-model="form.owner_name"
-                    required
-                    placeholder="John Smith"
-                />
-                <InputError class="mt-2" :message="form.errors.owner_name" />
-            </div>
-
             <!-- Email -->
             <div>
                 <InputLabel for="email" value="Email" />
@@ -96,7 +82,8 @@ defineEmits(['submit']);
                     class="mt-1 w-full rounded-xl border border-white/10 bg-gray-800 px-4 py-3 text-sm text-white transition focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50"
                 >
                     <option value="self_managed">Self Managed — £20/month</option>
-                    <option value="fig_managed">Fig Managed — £200/month</option>
+                    <option value="fig_managed">Fig Managed — £50/month</option>
+                    <option value="fig_developed">Fig Developed — £200/month</option>
                 </select>
                 <InputError class="mt-2" :message="form.errors.plan" />
             </div>
@@ -109,6 +96,7 @@ defineEmits(['submit']);
                     v-model="form.status"
                     class="mt-1 w-full rounded-xl border border-white/10 bg-gray-800 px-4 py-3 text-sm text-white transition focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50"
                 >
+                    <option value="unknown">Unknown</option>
                     <option value="active">Active</option>
                     <option value="suspended">Suspended</option>
                     <option value="cancelled">Cancelled</option>

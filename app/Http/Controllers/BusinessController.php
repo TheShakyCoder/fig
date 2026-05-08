@@ -16,7 +16,7 @@ class BusinessController extends Controller
             ->when($request->search, fn ($q, $search) => $q
                 ->where('name', 'like', "%{$search}%")
                 ->orWhere('domain', 'like', "%{$search}%")
-                ->orWhere('owner_name', 'like', "%{$search}%")
+                ->orWhere('email', 'like', "%{$search}%")
             )
             ->latest()
             ->paginate(10)
@@ -38,11 +38,10 @@ class BusinessController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'domain' => 'nullable|string|max:255',
-            'owner_name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'nullable|string|max:50',
-            'plan' => 'required|in:self_managed,fig_managed',
-            'status' => 'required|in:active,suspended,cancelled',
+            'plan' => 'nullable|in:self_managed,fig_managed,fig_developed',
+            'status' => 'nullable|in:active,suspended,cancelled',
             'notes' => 'nullable|string',
         ]);
 
@@ -71,11 +70,10 @@ class BusinessController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'domain' => 'nullable|string|max:255',
-            'owner_name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'nullable|string|max:50',
-            'plan' => 'required|in:self_managed,fig_managed',
-            'status' => 'required|in:active,suspended,cancelled',
+            'plan' => 'nullable|in:self_managed,fig_managed,fig_developed',
+            'status' => 'nullable|in:active,suspended,cancelled',
             'notes' => 'nullable|string',
         ]);
 
