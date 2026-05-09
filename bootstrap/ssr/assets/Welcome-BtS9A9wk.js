@@ -1,0 +1,106 @@
+import { Head, Link, useForm } from "@inertiajs/vue3";
+import { createTextVNode, createVNode, ref, unref, useSSRContext, withCtx } from "vue";
+import { ssrIncludeBooleanAttr, ssrInterpolate, ssrRenderAttr, ssrRenderClass, ssrRenderComponent, ssrRenderList } from "vue/server-renderer";
+//#region resources/js/Pages/Welcome.vue
+var _sfc_main = {
+	__name: "Welcome",
+	__ssrInlineRender: true,
+	props: {
+		canLogin: { type: Boolean },
+		canRegister: { type: Boolean },
+		plans: Object
+	},
+	setup(__props) {
+		const form = useForm({
+			name: "",
+			email: "",
+			postcode: "",
+			message: ""
+		});
+		const submitted = ref(false);
+		return (_ctx, _push, _parent, _attrs) => {
+			_push(`<!--[-->`);
+			_push(ssrRenderComponent(unref(Head), { title: "Website Creation & Hosting" }, null, _parent));
+			_push(`<div class="min-h-screen bg-gray-950 text-gray-100 selection:bg-emerald-500/30 selection:text-white"><nav class="fixed top-0 z-50 w-full border-b border-white/5 bg-gray-950/80 backdrop-blur-xl"><div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">`);
+			_push(ssrRenderComponent(unref(Link), {
+				href: "/",
+				class: "text-xl font-bold tracking-tight text-white"
+			}, {
+				default: withCtx((_, _push, _parent, _scopeId) => {
+					if (_push) _push(` fig<span class="text-emerald-400"${_scopeId}>.</span>`);
+					else return [createTextVNode(" fig"), createVNode("span", { class: "text-emerald-400" }, ".")];
+				}),
+				_: 1
+			}, _parent));
+			_push(`<div class="flex items-center gap-4">`);
+			if (__props.canLogin) {
+				_push(`<!--[-->`);
+				if (_ctx.$page.props.auth.user) _push(ssrRenderComponent(unref(Link), {
+					href: "/dashboard",
+					class: "text-sm text-gray-400 transition hover:text-white"
+				}, {
+					default: withCtx((_, _push, _parent, _scopeId) => {
+						if (_push) _push(` Dashboard `);
+						else return [createTextVNode(" Dashboard ")];
+					}),
+					_: 1
+				}, _parent));
+				else {
+					_push(`<!--[-->`);
+					_push(ssrRenderComponent(unref(Link), {
+						href: "/login",
+						class: "text-sm text-gray-400 transition hover:text-white"
+					}, {
+						default: withCtx((_, _push, _parent, _scopeId) => {
+							if (_push) _push(` Log in `);
+							else return [createTextVNode(" Log in ")];
+						}),
+						_: 1
+					}, _parent));
+					if (__props.canRegister) _push(ssrRenderComponent(unref(Link), {
+						href: "/register",
+						class: "rounded-lg bg-emerald-500 px-4 py-2 text-sm font-medium text-gray-950 transition hover:bg-emerald-400"
+					}, {
+						default: withCtx((_, _push, _parent, _scopeId) => {
+							if (_push) _push(` Get Started `);
+							else return [createTextVNode(" Get Started ")];
+						}),
+						_: 1
+					}, _parent));
+					else _push(`<!---->`);
+					_push(`<!--]-->`);
+				}
+				_push(`<!--]-->`);
+			} else _push(`<!---->`);
+			_push(`</div></div></nav><section class="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28"><div class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-[600px] w-[800px] rounded-full bg-emerald-500/5 blur-3xl"></div><div class="relative mx-auto max-w-3xl px-6 text-center"><p class="mb-4 inline-block rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1 text-xs font-medium uppercase tracking-widest text-emerald-400"> Simple. Honest. Pricing. </p><h1 class="text-4xl font-bold leading-tight tracking-tight text-white sm:text-6xl"> Your website,<br><span class="text-emerald-400">sorted.</span></h1><p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-gray-400"> We build clean, fast websites and host them for you. No hidden fees, no nonsense. Pick the plan that fits how you work. </p><div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"><a href="#pricing" class="w-full rounded-lg bg-emerald-500 px-8 py-3.5 text-center text-sm font-semibold text-gray-950 shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-400 hover:shadow-emerald-500/30 sm:w-auto"> See Pricing </a><a href="#how-it-works" class="w-full rounded-lg border border-white/10 px-8 py-3.5 text-center text-sm font-medium text-gray-300 transition hover:border-white/20 hover:text-white sm:w-auto"> How It Works </a></div></div></section><section id="how-it-works" class="border-t border-white/5 bg-gray-900/50 py-20 sm:py-28"><div class="mx-auto max-w-6xl px-6"><div class="mx-auto max-w-2xl text-center"><h2 class="text-2xl font-bold text-white sm:text-3xl"> Everything you need, nothing you don&#39;t </h2><p class="mt-4 text-gray-400"> We keep things lean so you get a fast, reliable site without the bloat. </p></div><div class="mt-16 grid gap-8 sm:grid-cols-3"><div class="rounded-2xl border border-white/5 bg-gray-900 p-8"><div class="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10"><svg class="h-5 w-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42"></path></svg></div><h3 class="mt-4 text-lg font-semibold text-white"> Custom Design </h3><p class="mt-2 text-sm leading-relaxed text-gray-400"> A bespoke site designed around your brand. No templates, no page builders — just clean code that loads fast. </p></div><div class="rounded-2xl border border-white/5 bg-gray-900 p-8"><div class="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10"><svg class="h-5 w-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0a4.5 4.5 0 0 1 .9-2.7L5.737 5.1a3.375 3.375 0 0 1 2.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 0 1 .9 2.7m0 0a3 3 0 0 1-3 3m0 3h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Zm-3 6h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Z"></path></svg></div><h3 class="mt-4 text-lg font-semibold text-white"> Reliable Hosting </h3><p class="mt-2 text-sm leading-relaxed text-gray-400"> Fast, secure hosting with SSL, backups, monitoring and a domain* included. Your site stays online — we handle the rest. </p></div><div class="rounded-2xl border border-white/5 bg-gray-900 p-8"><div class="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10"><svg class="h-5 w-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182"></path></svg></div><h3 class="mt-4 text-lg font-semibold text-white"> Ongoing Support </h3><p class="mt-2 text-sm leading-relaxed text-gray-400"> Need a change? On the managed plan we handle updates for you. On self-managed, you get a simple CMS to do it yourself. </p></div></div></div><p class="mt-10 text-center text-sm text-gray-500"> *Domains available are dependent on the plan you choose. </p></section><section id="pricing" class="border-t border-white/5 py-20 sm:py-28"><div class="mx-auto max-w-6xl px-6"><div class="mx-auto max-w-2xl text-center"><h2 class="text-2xl font-bold text-white sm:text-3xl"> Simple, honest pricing </h2><p class="mt-4 text-gray-400"> All plans include design, build, hosting, and SSL. Pick the level of support that suits you. </p></div><div class="mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3"><!--[-->`);
+			ssrRenderList(__props.plans, (plan) => {
+				_push(`<div class="${ssrRenderClass([[plan.options.popular ? "border-2 border-emerald-500/50" : "border border-white/5"], "relative rounded-2xl bg-gray-900 p-8 sm:p-10"])}">`);
+				if (plan.options.popular) _push(`<div class="absolute -top-3 right-8"><span class="rounded-full bg-emerald-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gray-950"> Popular </span></div>`);
+				else _push(`<!---->`);
+				_push(`<h3 class="text-sm font-medium uppercase tracking-wider text-emerald-400">${ssrInterpolate(plan.options.title)}</h3><div class="mt-4 flex items-baseline gap-1"><span class="text-5xl font-bold tracking-tight text-white">${ssrInterpolate(plan.options.price)}</span><span class="text-lg text-gray-500">/month</span></div><p class="mt-4 text-sm leading-relaxed text-gray-400">${ssrInterpolate(plan.options.strapline)}</p><ul class="mt-8 space-y-3"><!--[-->`);
+				ssrRenderList(plan.bullets, (bullet) => {
+					_push(`<li class="flex items-start gap-3 text-sm text-gray-300"><svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path></svg> ${ssrInterpolate(bullet)}</li>`);
+				});
+				_push(`<!--]--></ul><a href="#contact" class="${ssrRenderClass([[plan.options.popular ? "bg-emerald-500 text-gray-950 shadow-lg shadow-emerald-500/20 hover:bg-emerald-400 hover:shadow-emerald-500/30" : "border border-white/10 text-white hover:border-white/25 hover:bg-white/5"], "mt-10 block w-full rounded-lg py-3 text-center text-sm font-semibold shadow-lg transition"])}"> Get Started </a></div>`);
+			});
+			_push(`<!--]--></div></div></section><section id="about" class="border-t border-white/5 py-20 sm:py-28"><div class="mx-auto max-w-6xl px-6"><div class="grid items-center gap-12 sm:grid-cols-2"><div><p class="mb-4 inline-block rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1 text-xs font-medium uppercase tracking-widest text-emerald-400"> About Us </p><h2 class="text-2xl font-bold text-white sm:text-3xl"> Fig Limited </h2><p class="mt-4 text-sm leading-relaxed text-gray-400"> We&#39;re a small, UK-based web studio that believes great websites shouldn&#39;t cost a fortune. Founded with a simple idea — build honest, well-crafted sites for businesses that just want something that works. </p><p class="mt-4 text-sm leading-relaxed text-gray-400"> No jargon, no upsells, no 47-page proposals. We sit down, listen to what you need, and build it. Every site we deliver is hand-coded, fast, and designed to look good for years — not months. </p><p class="mt-4 text-sm leading-relaxed text-gray-400"> Whether you&#39;re a sole trader who needs a single page or a growing business that wants something more, we keep things simple so you can focus on what you do best. </p></div><div class="grid grid-cols-2 gap-4"><div class="rounded-2xl border border-white/5 bg-gray-900 p-6 text-center"><p class="mt-1 text-xs text-gray-500"> Years in business </p><p class="text-2xl font-bold text-emerald-400"> 25+ </p></div><div class="rounded-2xl border border-white/5 bg-gray-900 p-6 text-center"><p class="mt-1 text-xs text-gray-500"> Based &amp; Registered </p><p class="text-2xl font-bold text-emerald-400"> Preston </p></div><div class="rounded-2xl border border-white/5 bg-gray-900 p-6 text-center"><p class="mt-1 text-xs text-gray-500">Practicing</p><p class="text-2xl font-bold text-emerald-400"> People-First </p></div><div class="rounded-2xl border border-white/5 bg-gray-900 p-6 text-center"><p class="mt-1 text-xs text-gray-500">Supporting</p><p class="text-2xl font-bold text-emerald-400"> Small Businesses </p></div></div></div></div></section><section id="contact" class="border-t border-white/5 bg-gray-900/50 py-20 sm:py-28"><div class="mx-auto max-w-xl px-6"><div class="text-center"><h2 class="text-2xl font-bold text-white sm:text-3xl"> Ready to get started? </h2><p class="mt-4 text-gray-400"> Drop us a message and we&#39;ll get back to you within 24 hours. </p></div><div class="mt-10 overflow-hidden rounded-2xl border border-white/5 bg-gray-900"><div class="flex items-center gap-3 border-b border-white/5 px-5 py-4"><div class="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/10"><span class="text-sm font-bold text-emerald-400">f.</span></div><div><p class="text-sm font-medium text-white">Fig</p><p class="text-xs text-emerald-400"> We typically reply within a few hours </p></div></div><div class="px-5 py-6"><div class="mb-6 flex items-start gap-3"><div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-emerald-500/10 mt-0.5"><span class="text-[10px] font-bold text-emerald-400">f.</span></div><div class="rounded-2xl rounded-tl-sm bg-gray-800 px-4 py-3"><p class="text-sm text-gray-300"> Hi there! Tell us a bit about what you need and we&#39;ll get back to you. </p></div></div>`);
+			if (submitted.value) _push(`<div class="rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-6 text-center"><div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/20"><svg class="h-6 w-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></path></svg></div><p class="text-lg font-semibold text-white"> Message sent! </p><p class="mt-1 text-sm text-emerald-300/70"> Thanks! We&#39;ve got your message and will be in touch soon. </p></div>`);
+			else _push(`<!---->`);
+			if (!submitted.value) {
+				_push(`<form class="space-y-3"><div class="flex gap-3"><input${ssrRenderAttr("value", unref(form).name)} type="text" placeholder="Your name" required class="w-1/2 rounded-xl border border-white/10 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 transition focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50"><input${ssrRenderAttr("value", unref(form).email)} type="email" placeholder="your@email.com" required class="w-1/2 rounded-xl border border-white/10 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 transition focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50"></div><input${ssrRenderAttr("value", unref(form).postcode)} type="text" placeholder="Your postcode" class="w-full rounded-xl border border-white/10 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 transition focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50"><p class="text-sm text-gray-500"> If you&#39;re based in the Penwortham area, we&#39;d love to come and visit you. </p><div class="relative"><textarea rows="3" placeholder="Tell us about your project..." class="w-full resize-none rounded-xl border border-white/10 bg-gray-800 px-4 py-3 pr-14 text-sm text-white placeholder-gray-500 transition focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50">${ssrInterpolate(unref(form).message)}</textarea><button type="submit"${ssrIncludeBooleanAttr(unref(form).processing) ? " disabled" : ""} class="absolute bottom-3 right-3 flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500 text-gray-950 transition hover:bg-emerald-400 disabled:opacity-50"><svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"></path></svg></button></div>`);
+				if (unref(form).errors.name || unref(form).errors.email || unref(form).errors.postcode || unref(form).errors.message) _push(`<p class="text-xs text-red-400">${ssrInterpolate(unref(form).errors.name || unref(form).errors.email || unref(form).errors.postcode || unref(form).errors.message)}</p>`);
+				else _push(`<!---->`);
+				_push(`</form>`);
+			} else _push(`<!---->`);
+			_push(`</div></div><div class="mt-10 grid gap-4 sm:grid-cols-2"><a href="mailto:support@fig.limited" class="flex items-center gap-4 rounded-2xl border border-white/5 bg-gray-900 p-5 transition hover:border-white/10"><div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-500/10"><svg class="h-5 w-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"></path></svg></div><div><p class="text-xs text-gray-500">Email us</p><p class="text-sm font-medium text-white"> support@fig.limited </p></div></a><a href="https://wa.me/447515382159" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 rounded-2xl border border-white/5 bg-gray-900 p-5 transition hover:border-white/10"><div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-500/10"><svg class="h-5 w-5 text-emerald-400" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"></path></svg></div><div><p class="text-xs text-gray-500">WhatsApp</p><p class="text-sm font-medium text-white"> 07515 382159 </p></div></a></div></div></section><footer class="border-t border-white/5 py-10"><div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 sm:flex-row"><span class="text-sm font-bold tracking-tight text-white">fig<span class="text-emerald-400">.</span></span><p class="text-xs text-gray-500"> © ${ssrInterpolate((/* @__PURE__ */ new Date()).getFullYear())} Fig. All rights reserved. </p></div></footer></div><!--]-->`);
+		};
+	}
+};
+var _sfc_setup = _sfc_main.setup;
+_sfc_main.setup = (props, ctx) => {
+	const ssrContext = useSSRContext();
+	(ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Welcome.vue");
+	return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
+};
+//#endregion
+export { _sfc_main as default };

@@ -1,5 +1,5 @@
-import { t as _sfc_main$1 } from "./GuestLayout-DNU3NMha.js";
-import { t as PrimaryButton_default } from "./PrimaryButton-B1ji_1RB.js";
+import { t as _sfc_main$1 } from "./GuestLayout-DzJsJfoW.js";
+import { t as PrimaryButton_default } from "./PrimaryButton-CZJY0X90.js";
 import { Head, Link, useForm } from "@inertiajs/vue3";
 import { computed, createBlock, createCommentVNode, createTextVNode, createVNode, openBlock, unref, useSSRContext, withCtx, withModifiers } from "vue";
 import { ssrRenderComponent } from "vue/server-renderer";
@@ -20,8 +20,8 @@ var _sfc_main = {
 				default: withCtx((_, _push, _parent, _scopeId) => {
 					if (_push) {
 						_push(ssrRenderComponent(unref(Head), { title: "Email Verification" }, null, _parent, _scopeId));
-						_push(`<div class="mb-4 text-sm text-gray-600 dark:text-gray-400"${_scopeId}> Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn&#39;t receive the email, we will gladly send you another. </div>`);
-						if (verificationLinkSent.value) _push(`<div class="mb-4 text-sm font-medium text-green-600 dark:text-green-400"${_scopeId}> A new verification link has been sent to the email address you provided during registration. </div>`);
+						_push(`<div class="mb-4 text-sm text-gray-400"${_scopeId}> Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn&#39;t receive the email, we will gladly send you another. </div>`);
+						if (verificationLinkSent.value) _push(`<div class="mb-4 text-sm font-medium text-emerald-400"${_scopeId}> A new verification link has been sent to the email address you provided during registration. </div>`);
 						else _push(`<!---->`);
 						_push(`<form${_scopeId}><div class="mt-4 flex items-center justify-between"${_scopeId}>`);
 						_push(ssrRenderComponent(PrimaryButton_default, {
@@ -38,7 +38,7 @@ var _sfc_main = {
 							href: _ctx.route("logout"),
 							method: "post",
 							as: "button",
-							class: "rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
+							class: "rounded-md text-sm text-gray-400 underline hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:ring-offset-2 focus:ring-offset-gray-900"
 						}, {
 							default: withCtx((_, _push, _parent, _scopeId) => {
 								if (_push) _push(`Log Out`);
@@ -49,10 +49,10 @@ var _sfc_main = {
 						_push(`</div></form>`);
 					} else return [
 						createVNode(unref(Head), { title: "Email Verification" }),
-						createVNode("div", { class: "mb-4 text-sm text-gray-600 dark:text-gray-400" }, " Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another. "),
+						createVNode("div", { class: "mb-4 text-sm text-gray-400" }, " Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another. "),
 						verificationLinkSent.value ? (openBlock(), createBlock("div", {
 							key: 0,
-							class: "mb-4 text-sm font-medium text-green-600 dark:text-green-400"
+							class: "mb-4 text-sm font-medium text-emerald-400"
 						}, " A new verification link has been sent to the email address you provided during registration. ")) : createCommentVNode("", true),
 						createVNode("form", { onSubmit: withModifiers(submit, ["prevent"]) }, [createVNode("div", { class: "mt-4 flex items-center justify-between" }, [createVNode(PrimaryButton_default, {
 							class: { "opacity-25": unref(form).processing },
@@ -64,7 +64,7 @@ var _sfc_main = {
 							href: _ctx.route("logout"),
 							method: "post",
 							as: "button",
-							class: "rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
+							class: "rounded-md text-sm text-gray-400 underline hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:ring-offset-2 focus:ring-offset-gray-900"
 						}, {
 							default: withCtx(() => [createTextVNode("Log Out")]),
 							_: 1

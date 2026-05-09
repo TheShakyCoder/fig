@@ -1,48 +1,40 @@
-import { t as _sfc_main$1 } from "./GuestLayout-DNU3NMha.js";
-import { n as _sfc_main$2, r as _sfc_main$4, t as _sfc_main$3 } from "./TextInput-lCBopPvf.js";
-import { t as PrimaryButton_default } from "./PrimaryButton-B1ji_1RB.js";
-import { Head, Link, useForm } from "@inertiajs/vue3";
+import { t as _sfc_main$1 } from "./GuestLayout-DzJsJfoW.js";
+import { n as _sfc_main$2, r as _sfc_main$4, t as _sfc_main$3 } from "./TextInput-C2E0wJPU.js";
+import { t as PrimaryButton_default } from "./PrimaryButton-CZJY0X90.js";
+import { Head, useForm } from "@inertiajs/vue3";
 import { createTextVNode, createVNode, unref, useSSRContext, withCtx, withModifiers } from "vue";
 import { ssrRenderComponent } from "vue/server-renderer";
-//#region resources/js/Pages/Auth/Register.vue
+//#region resources/js/Pages/Auth/ResetPassword.vue
 var _sfc_main = {
-	__name: "Register",
+	__name: "ResetPassword",
 	__ssrInlineRender: true,
+	props: {
+		email: {
+			type: String,
+			required: true
+		},
+		token: {
+			type: String,
+			required: true
+		}
+	},
 	setup(__props) {
+		const props = __props;
 		const form = useForm({
-			name: "",
-			email: "",
+			token: props.token,
+			email: props.email,
 			password: "",
 			password_confirmation: ""
 		});
 		const submit = () => {
-			form.post(route("register"), { onFinish: () => form.reset("password", "password_confirmation") });
+			form.post(route("password.store"), { onFinish: () => form.reset("password", "password_confirmation") });
 		};
 		return (_ctx, _push, _parent, _attrs) => {
 			_push(ssrRenderComponent(_sfc_main$1, _attrs, {
 				default: withCtx((_, _push, _parent, _scopeId) => {
 					if (_push) {
-						_push(ssrRenderComponent(unref(Head), { title: "Register" }, null, _parent, _scopeId));
+						_push(ssrRenderComponent(unref(Head), { title: "Reset Password" }, null, _parent, _scopeId));
 						_push(`<form${_scopeId}><div${_scopeId}>`);
-						_push(ssrRenderComponent(_sfc_main$2, {
-							for: "name",
-							value: "Name"
-						}, null, _parent, _scopeId));
-						_push(ssrRenderComponent(_sfc_main$3, {
-							id: "name",
-							type: "text",
-							class: "mt-1 block w-full",
-							modelValue: unref(form).name,
-							"onUpdate:modelValue": ($event) => unref(form).name = $event,
-							required: "",
-							autofocus: "",
-							autocomplete: "name"
-						}, null, _parent, _scopeId));
-						_push(ssrRenderComponent(_sfc_main$4, {
-							class: "mt-2",
-							message: unref(form).errors.name
-						}, null, _parent, _scopeId));
-						_push(`</div><div class="mt-4"${_scopeId}>`);
 						_push(ssrRenderComponent(_sfc_main$2, {
 							for: "email",
 							value: "Email"
@@ -54,6 +46,7 @@ var _sfc_main = {
 							modelValue: unref(form).email,
 							"onUpdate:modelValue": ($event) => unref(form).email = $event,
 							required: "",
+							autofocus: "",
 							autocomplete: "username"
 						}, null, _parent, _scopeId));
 						_push(ssrRenderComponent(_sfc_main$4, {
@@ -97,49 +90,19 @@ var _sfc_main = {
 							message: unref(form).errors.password_confirmation
 						}, null, _parent, _scopeId));
 						_push(`</div><div class="mt-4 flex items-center justify-end"${_scopeId}>`);
-						_push(ssrRenderComponent(unref(Link), {
-							href: _ctx.route("login"),
-							class: "rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
-						}, {
-							default: withCtx((_, _push, _parent, _scopeId) => {
-								if (_push) _push(` Already registered? `);
-								else return [createTextVNode(" Already registered? ")];
-							}),
-							_: 1
-						}, _parent, _scopeId));
 						_push(ssrRenderComponent(PrimaryButton_default, {
-							class: ["ms-4", { "opacity-25": unref(form).processing }],
+							class: { "opacity-25": unref(form).processing },
 							disabled: unref(form).processing
 						}, {
 							default: withCtx((_, _push, _parent, _scopeId) => {
-								if (_push) _push(` Register `);
-								else return [createTextVNode(" Register ")];
+								if (_push) _push(` Reset Password `);
+								else return [createTextVNode(" Reset Password ")];
 							}),
 							_: 1
 						}, _parent, _scopeId));
 						_push(`</div></form>`);
-					} else return [createVNode(unref(Head), { title: "Register" }), createVNode("form", { onSubmit: withModifiers(submit, ["prevent"]) }, [
+					} else return [createVNode(unref(Head), { title: "Reset Password" }), createVNode("form", { onSubmit: withModifiers(submit, ["prevent"]) }, [
 						createVNode("div", null, [
-							createVNode(_sfc_main$2, {
-								for: "name",
-								value: "Name"
-							}),
-							createVNode(_sfc_main$3, {
-								id: "name",
-								type: "text",
-								class: "mt-1 block w-full",
-								modelValue: unref(form).name,
-								"onUpdate:modelValue": ($event) => unref(form).name = $event,
-								required: "",
-								autofocus: "",
-								autocomplete: "name"
-							}, null, 8, ["modelValue", "onUpdate:modelValue"]),
-							createVNode(_sfc_main$4, {
-								class: "mt-2",
-								message: unref(form).errors.name
-							}, null, 8, ["message"])
-						]),
-						createVNode("div", { class: "mt-4" }, [
 							createVNode(_sfc_main$2, {
 								for: "email",
 								value: "Email"
@@ -151,6 +114,7 @@ var _sfc_main = {
 								modelValue: unref(form).email,
 								"onUpdate:modelValue": ($event) => unref(form).email = $event,
 								required: "",
+								autofocus: "",
 								autocomplete: "username"
 							}, null, 8, ["modelValue", "onUpdate:modelValue"]),
 							createVNode(_sfc_main$4, {
@@ -196,17 +160,11 @@ var _sfc_main = {
 								message: unref(form).errors.password_confirmation
 							}, null, 8, ["message"])
 						]),
-						createVNode("div", { class: "mt-4 flex items-center justify-end" }, [createVNode(unref(Link), {
-							href: _ctx.route("login"),
-							class: "rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
-						}, {
-							default: withCtx(() => [createTextVNode(" Already registered? ")]),
-							_: 1
-						}, 8, ["href"]), createVNode(PrimaryButton_default, {
-							class: ["ms-4", { "opacity-25": unref(form).processing }],
+						createVNode("div", { class: "mt-4 flex items-center justify-end" }, [createVNode(PrimaryButton_default, {
+							class: { "opacity-25": unref(form).processing },
 							disabled: unref(form).processing
 						}, {
-							default: withCtx(() => [createTextVNode(" Register ")]),
+							default: withCtx(() => [createTextVNode(" Reset Password ")]),
 							_: 1
 						}, 8, ["class", "disabled"])])
 					], 32)];
@@ -219,7 +177,7 @@ var _sfc_main = {
 var _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
 	const ssrContext = useSSRContext();
-	(ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Auth/Register.vue");
+	(ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Pages/Auth/ResetPassword.vue");
 	return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
 //#endregion

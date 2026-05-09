@@ -1,6 +1,6 @@
-import { t as _sfc_main$1 } from "./GuestLayout-DNU3NMha.js";
-import { n as _sfc_main$2, r as _sfc_main$4, t as _sfc_main$3 } from "./TextInput-lCBopPvf.js";
-import { t as PrimaryButton_default } from "./PrimaryButton-B1ji_1RB.js";
+import { t as _sfc_main$1 } from "./GuestLayout-DzJsJfoW.js";
+import { n as _sfc_main$2, r as _sfc_main$4, t as _sfc_main$3 } from "./TextInput-C2E0wJPU.js";
+import { t as PrimaryButton_default } from "./PrimaryButton-CZJY0X90.js";
 import { Head, useForm } from "@inertiajs/vue3";
 import { createBlock, createCommentVNode, createTextVNode, createVNode, openBlock, toDisplayString, unref, useSSRContext, withCtx, withModifiers } from "vue";
 import { ssrInterpolate, ssrRenderComponent } from "vue/server-renderer";
@@ -19,8 +19,8 @@ var _sfc_main = {
 				default: withCtx((_, _push, _parent, _scopeId) => {
 					if (_push) {
 						_push(ssrRenderComponent(unref(Head), { title: "Forgot Password" }, null, _parent, _scopeId));
-						_push(`<div class="mb-4 text-sm text-gray-600 dark:text-gray-400"${_scopeId}> Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one. </div>`);
-						if (__props.status) _push(`<div class="mb-4 text-sm font-medium text-green-600 dark:text-green-400"${_scopeId}>${ssrInterpolate(__props.status)}</div>`);
+						_push(`<div class="mb-4 text-sm text-gray-400"${_scopeId}> Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one. </div>`);
+						if (__props.status) _push(`<div class="mb-4 text-sm font-medium text-emerald-400"${_scopeId}>${ssrInterpolate(__props.status)}</div>`);
 						else _push(`<!---->`);
 						_push(`<form${_scopeId}><div${_scopeId}>`);
 						_push(ssrRenderComponent(_sfc_main$2, {
@@ -55,10 +55,10 @@ var _sfc_main = {
 						_push(`</div></form>`);
 					} else return [
 						createVNode(unref(Head), { title: "Forgot Password" }),
-						createVNode("div", { class: "mb-4 text-sm text-gray-600 dark:text-gray-400" }, " Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one. "),
+						createVNode("div", { class: "mb-4 text-sm text-gray-400" }, " Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one. "),
 						__props.status ? (openBlock(), createBlock("div", {
 							key: 0,
-							class: "mb-4 text-sm font-medium text-green-600 dark:text-green-400"
+							class: "mb-4 text-sm font-medium text-emerald-400"
 						}, toDisplayString(__props.status), 1)) : createCommentVNode("", true),
 						createVNode("form", { onSubmit: withModifiers(submit, ["prevent"]) }, [createVNode("div", null, [
 							createVNode(_sfc_main$2, {

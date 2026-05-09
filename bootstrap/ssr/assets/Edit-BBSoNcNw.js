@@ -1,7 +1,7 @@
-import { t as _sfc_main$1 } from "./AuthenticatedLayout-CDnzcocC.js";
-import _sfc_main$2 from "./DeleteUserForm-DRkL7EC4.js";
-import _sfc_main$3 from "./UpdatePasswordForm-2Hx7NMW1.js";
-import _sfc_main$4 from "./UpdateProfileInformationForm-BFg_cRnB.js";
+import { t as _sfc_main$1 } from "./AuthenticatedLayout-Di3BRzMd.js";
+import _sfc_main$2 from "./DeleteUserForm-u_nLoSEG.js";
+import _sfc_main$3 from "./UpdatePasswordForm-DZys9qKp.js";
+import _sfc_main$4 from "./UpdateProfileInformationForm-DeOWfIwv.js";
 import { Head } from "@inertiajs/vue3";
 import { createVNode, unref, useSSRContext, withCtx } from "vue";
 import { ssrRenderComponent } from "vue/server-renderer";

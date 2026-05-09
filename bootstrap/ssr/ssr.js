@@ -1,7 +1,8 @@
 import { createInertiaApp } from "@inertiajs/vue3";
 import createServer from "@inertiajs/vue3/server";
 import { renderToString } from "@vue/server-renderer";
-import { createSSRApp, h } from "vue";
+import { createSSRApp, h, mergeProps, onMounted, ref, useSSRContext } from "vue";
+import { ssrRenderAttrs } from "vue/server-renderer";
 //#region node_modules/laravel-vite-plugin/inertia-helpers/index.js
 async function resolvePageComponent(path, pages) {
 	for (const p of Array.isArray(path) ? path : [path]) {
@@ -656,6 +657,30 @@ var M = { install: function(t, e) {
 	parseInt(t.version) > 2 ? (t.config.globalProperties.route = n, t.provide("route", n)) : t.mixin({ methods: { route: n } });
 } };
 //#endregion
+//#region resources/js/Components/CookieConsent.vue
+var _sfc_main = {
+	__name: "CookieConsent",
+	__ssrInlineRender: true,
+	setup(__props) {
+		const visible = ref(false);
+		onMounted(() => {
+			if (typeof document !== "undefined") {
+				if (!document.cookie.split("; ").find((row) => row.startsWith("cookie_consent="))) visible.value = true;
+			}
+		});
+		return (_ctx, _push, _parent, _attrs) => {
+			if (visible.value) _push(`<div${ssrRenderAttrs(mergeProps({ class: "fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6" }, _attrs))}><div class="mx-auto max-w-4xl rounded-2xl border border-white/10 bg-gray-900 px-6 py-5 shadow-2xl sm:flex sm:items-center sm:justify-between sm:gap-6"><p class="text-sm text-gray-400"> We use cookies to ensure you get the best experience on our site. By continuing to browse, you agree to our use of cookies. <a href="/privacy" class="text-emerald-400 underline hover:text-emerald-300 transition">Privacy Policy</a></p><div class="mt-4 flex shrink-0 gap-3 sm:mt-0"><button class="rounded-xl border border-white/10 px-4 py-2 text-sm font-medium text-gray-400 transition hover:bg-white/5 hover:text-white"> Decline </button><button class="rounded-xl bg-emerald-500 px-4 py-2 text-sm font-semibold text-gray-950 transition hover:bg-emerald-400"> Accept </button></div></div></div>`);
+			else _push(`<!---->`);
+		};
+	}
+};
+var _sfc_setup = _sfc_main.setup;
+_sfc_main.setup = (props, ctx) => {
+	const ssrContext = useSSRContext();
+	(ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/Components/CookieConsent.vue");
+	return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
+};
+//#endregion
 //#region resources/js/ssr.js
 var appName = "Laravel";
 createServer((page) => createInertiaApp({
@@ -663,21 +688,27 @@ createServer((page) => createInertiaApp({
 	render: renderToString,
 	title: (title) => `${title} - ${appName}`,
 	resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, /* @__PURE__ */ Object.assign({
-		"./Pages/Auth/ConfirmPassword.vue": () => import("./assets/ConfirmPassword-BVSGPcBT.js"),
-		"./Pages/Auth/ForgotPassword.vue": () => import("./assets/ForgotPassword-BB17i52B.js"),
-		"./Pages/Auth/Login.vue": () => import("./assets/Login-zB7tH3UN.js"),
-		"./Pages/Auth/Register.vue": () => import("./assets/Register-1uhekyNI.js"),
-		"./Pages/Auth/ResetPassword.vue": () => import("./assets/ResetPassword-CjjzNXKz.js"),
-		"./Pages/Auth/VerifyEmail.vue": () => import("./assets/VerifyEmail-IRppTDrJ.js"),
-		"./Pages/Dashboard.vue": () => import("./assets/Dashboard-DSIEHSxt.js"),
-		"./Pages/Profile/Edit.vue": () => import("./assets/Edit-D5SZ8vtp.js"),
-		"./Pages/Profile/Partials/DeleteUserForm.vue": () => import("./assets/DeleteUserForm-DRkL7EC4.js"),
-		"./Pages/Profile/Partials/UpdatePasswordForm.vue": () => import("./assets/UpdatePasswordForm-2Hx7NMW1.js"),
-		"./Pages/Profile/Partials/UpdateProfileInformationForm.vue": () => import("./assets/UpdateProfileInformationForm-BFg_cRnB.js"),
-		"./Pages/Welcome.vue": () => import("./assets/Welcome-CtH1P2hH.js")
+		"./Pages/Auth/ConfirmPassword.vue": () => import("./assets/ConfirmPassword-C0Fh3crY.js"),
+		"./Pages/Auth/ForgotPassword.vue": () => import("./assets/ForgotPassword-vsdTI5ZH.js"),
+		"./Pages/Auth/Login.vue": () => import("./assets/Login-BZSI_MaG.js"),
+		"./Pages/Auth/Register.vue": () => import("./assets/Register-C0ts1z02.js"),
+		"./Pages/Auth/ResetPassword.vue": () => import("./assets/ResetPassword-DHRLvgKc.js"),
+		"./Pages/Auth/VerifyEmail.vue": () => import("./assets/VerifyEmail-r-sGICf4.js"),
+		"./Pages/Businesses/Create.vue": () => import("./assets/Create-C1GfaLKE.js"),
+		"./Pages/Businesses/Edit.vue": () => import("./assets/Edit-Uqys3HQ8.js"),
+		"./Pages/Businesses/Index.vue": () => import("./assets/Index-CY6uSL6D.js"),
+		"./Pages/Businesses/Partials/BusinessForm.vue": () => import("./assets/BusinessForm-Cv3aofiW.js"),
+		"./Pages/Businesses/Show.vue": () => import("./assets/Show-BatjRPFh.js"),
+		"./Pages/Dashboard.vue": () => import("./assets/Dashboard-BBwoBm1F.js"),
+		"./Pages/Preview.vue": () => import("./assets/Preview-DJiVwmqO.js"),
+		"./Pages/Profile/Edit.vue": () => import("./assets/Edit-BBSoNcNw.js"),
+		"./Pages/Profile/Partials/DeleteUserForm.vue": () => import("./assets/DeleteUserForm-u_nLoSEG.js"),
+		"./Pages/Profile/Partials/UpdatePasswordForm.vue": () => import("./assets/UpdatePasswordForm-DZys9qKp.js"),
+		"./Pages/Profile/Partials/UpdateProfileInformationForm.vue": () => import("./assets/UpdateProfileInformationForm-DeOWfIwv.js"),
+		"./Pages/Welcome.vue": () => import("./assets/Welcome-BtS9A9wk.js")
 	})),
 	setup({ App, props, plugin }) {
-		const app = createSSRApp({ render: () => h(App, props) }).use(plugin);
+		const app = createSSRApp({ render: () => [h(App, props), h(_sfc_main)] }).use(plugin);
 		if (page.props.ziggy) app.use(M, {
 			...page.props.ziggy,
 			location: new URL(page.props.ziggy.location)

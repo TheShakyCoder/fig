@@ -1,6 +1,6 @@
-import { t as _sfc_main$1 } from "./GuestLayout-DNU3NMha.js";
-import { n as _sfc_main$2, r as _sfc_main$4, t as _sfc_main$3 } from "./TextInput-lCBopPvf.js";
-import { t as PrimaryButton_default } from "./PrimaryButton-B1ji_1RB.js";
+import { t as _sfc_main$1 } from "./GuestLayout-DzJsJfoW.js";
+import { n as _sfc_main$2, r as _sfc_main$4, t as _sfc_main$3 } from "./TextInput-C2E0wJPU.js";
+import { t as PrimaryButton_default } from "./PrimaryButton-CZJY0X90.js";
 import { Head, useForm } from "@inertiajs/vue3";
 import { createTextVNode, createVNode, unref, useSSRContext, withCtx, withModifiers } from "vue";
 import { ssrRenderComponent } from "vue/server-renderer";
@@ -18,7 +18,7 @@ var _sfc_main = {
 				default: withCtx((_, _push, _parent, _scopeId) => {
 					if (_push) {
 						_push(ssrRenderComponent(unref(Head), { title: "Confirm Password" }, null, _parent, _scopeId));
-						_push(`<div class="mb-4 text-sm text-gray-600 dark:text-gray-400"${_scopeId}> This is a secure area of the application. Please confirm your password before continuing. </div><form${_scopeId}><div${_scopeId}>`);
+						_push(`<div class="mb-4 text-sm text-gray-400"${_scopeId}> This is a secure area of the application. Please confirm your password before continuing. </div><form${_scopeId}><div${_scopeId}>`);
 						_push(ssrRenderComponent(_sfc_main$2, {
 							for: "password",
 							value: "Password"
@@ -51,7 +51,7 @@ var _sfc_main = {
 						_push(`</div></form>`);
 					} else return [
 						createVNode(unref(Head), { title: "Confirm Password" }),
-						createVNode("div", { class: "mb-4 text-sm text-gray-600 dark:text-gray-400" }, " This is a secure area of the application. Please confirm your password before continuing. "),
+						createVNode("div", { class: "mb-4 text-sm text-gray-400" }, " This is a secure area of the application. Please confirm your password before continuing. "),
 						createVNode("form", { onSubmit: withModifiers(submit, ["prevent"]) }, [createVNode("div", null, [
 							createVNode(_sfc_main$2, {
 								for: "password",

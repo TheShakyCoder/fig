@@ -1,6 +1,6 @@
-import { t as _sfc_main$2 } from "./GuestLayout-DNU3NMha.js";
-import { n as _sfc_main$3, r as _sfc_main$5, t as _sfc_main$4 } from "./TextInput-lCBopPvf.js";
-import { t as PrimaryButton_default } from "./PrimaryButton-B1ji_1RB.js";
+import { t as _sfc_main$2 } from "./GuestLayout-DzJsJfoW.js";
+import { n as _sfc_main$3, r as _sfc_main$5, t as _sfc_main$4 } from "./TextInput-C2E0wJPU.js";
+import { t as PrimaryButton_default } from "./PrimaryButton-CZJY0X90.js";
 import { Head, Link, useForm } from "@inertiajs/vue3";
 import { computed, createBlock, createCommentVNode, createTextVNode, createVNode, mergeProps, openBlock, toDisplayString, unref, useSSRContext, withCtx, withModifiers } from "vue";
 import { ssrGetDynamicModelProps, ssrInterpolate, ssrLooseContain, ssrRenderAttrs, ssrRenderComponent } from "vue/server-renderer";
@@ -33,7 +33,7 @@ var _sfc_main$1 = {
 				type: "checkbox",
 				value: __props.value,
 				checked: Array.isArray(proxyChecked.value) ? ssrLooseContain(proxyChecked.value, __props.value) : proxyChecked.value,
-				class: "rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800"
+				class: "rounded border-white/10 bg-gray-800 text-emerald-500 shadow-sm focus:ring-emerald-500/50 focus:ring-offset-gray-900"
 			}, _attrs), mergeProps(_temp0, ssrGetDynamicModelProps(_temp0, proxyChecked.value))))}>`);
 		};
 	}
@@ -67,7 +67,7 @@ var _sfc_main = {
 				default: withCtx((_, _push, _parent, _scopeId) => {
 					if (_push) {
 						_push(ssrRenderComponent(unref(Head), { title: "Log in" }, null, _parent, _scopeId));
-						if (__props.status) _push(`<div class="mb-4 text-sm font-medium text-green-600"${_scopeId}>${ssrInterpolate(__props.status)}</div>`);
+						if (__props.status) _push(`<div class="mb-4 text-sm font-medium text-emerald-400"${_scopeId}>${ssrInterpolate(__props.status)}</div>`);
 						else _push(`<!---->`);
 						_push(`<form${_scopeId}><div${_scopeId}>`);
 						_push(ssrRenderComponent(_sfc_main$3, {
@@ -112,10 +112,10 @@ var _sfc_main = {
 							checked: unref(form).remember,
 							"onUpdate:checked": ($event) => unref(form).remember = $event
 						}, null, _parent, _scopeId));
-						_push(`<span class="ms-2 text-sm text-gray-600 dark:text-gray-400"${_scopeId}>Remember me</span></label></div><div class="mt-4 flex items-center justify-end"${_scopeId}>`);
+						_push(`<span class="ms-2 text-sm text-gray-400"${_scopeId}>Remember me</span></label></div><div class="mt-4 flex items-center justify-end"${_scopeId}>`);
 						if (__props.canResetPassword) _push(ssrRenderComponent(unref(Link), {
 							href: _ctx.route("password.request"),
-							class: "rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
+							class: "rounded-md text-sm text-gray-400 underline hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:ring-offset-2 focus:ring-offset-gray-900"
 						}, {
 							default: withCtx((_, _push, _parent, _scopeId) => {
 								if (_push) _push(` Forgot your password? `);
@@ -139,7 +139,7 @@ var _sfc_main = {
 						createVNode(unref(Head), { title: "Log in" }),
 						__props.status ? (openBlock(), createBlock("div", {
 							key: 0,
-							class: "mb-4 text-sm font-medium text-green-600"
+							class: "mb-4 text-sm font-medium text-emerald-400"
 						}, toDisplayString(__props.status), 1)) : createCommentVNode("", true),
 						createVNode("form", { onSubmit: withModifiers(submit, ["prevent"]) }, [
 							createVNode("div", null, [
@@ -185,11 +185,11 @@ var _sfc_main = {
 								name: "remember",
 								checked: unref(form).remember,
 								"onUpdate:checked": ($event) => unref(form).remember = $event
-							}, null, 8, ["checked", "onUpdate:checked"]), createVNode("span", { class: "ms-2 text-sm text-gray-600 dark:text-gray-400" }, "Remember me")])]),
+							}, null, 8, ["checked", "onUpdate:checked"]), createVNode("span", { class: "ms-2 text-sm text-gray-400" }, "Remember me")])]),
 							createVNode("div", { class: "mt-4 flex items-center justify-end" }, [__props.canResetPassword ? (openBlock(), createBlock(unref(Link), {
 								key: 0,
 								href: _ctx.route("password.request"),
-								class: "rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
+								class: "rounded-md text-sm text-gray-400 underline hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:ring-offset-2 focus:ring-offset-gray-900"
 							}, {
 								default: withCtx(() => [createTextVNode(" Forgot your password? ")]),
 								_: 1
