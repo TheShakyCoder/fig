@@ -294,45 +294,21 @@
 
             <table class="plans">
                 <tr>
-                    <td class="plan popular">
-                        <div class="plan-badge">Most Popular</div>
-                        <div class="plan-name">Self Managed</div>
-                        <div class="plan-price">&pound;20</div>
-                        <div class="plan-period">per month</div>
-                        <div class="plan-features">
-                            <span class="tick">&bull;</span> Professional website<br>
-                            <span class="tick">&bull;</span> Hosting included<br>
-                            <span class="tick">&bull;</span> SSL certificate<br>
-                            <span class="tick">&bull;</span> You manage content<br>
-                            <span class="tick">&bull;</span> Email support
-                        </div>
-                    </td>
-                    <td class="plan">
-                        <div class="plan-badge">&nbsp;</div>
-                        <div class="plan-name">Fig Managed</div>
-                        <div class="plan-price">&pound;50</div>
-                        <div class="plan-period">per month</div>
-                        <div class="plan-features">
-                            <span class="tick">&bull;</span> Everything in Self Managed<br>
-                            <span class="tick">&bull;</span> We manage all content<br>
-                            <span class="tick">&bull;</span> Unlimited changes<br>
-                            <span class="tick">&bull;</span> Priority support<br>
-                            <span class="tick">&bull;</span> Monthly analytics report
-                        </div>
-                    </td>
-                    <td class="plan">
-                        <div class="plan-badge">&nbsp;</div>
-                        <div class="plan-name">Fig Developed</div>
-                        <div class="plan-price">&pound;200</div>
-                        <div class="plan-period">per month</div>
-                        <div class="plan-features">
-                            <span class="tick">&bull;</span> Everything in Fig Managed<br>
-                            <span class="tick">&bull;</span> Custom development<br>
-                            <span class="tick">&bull;</span> Bespoke features<br>
-                            <span class="tick">&bull;</span> Dedicated support<br>
-                            <span class="tick">&bull;</span> Performance optimisation
-                        </div>
-                    </td>
+                    
+                    @foreach ($plans as $plan)
+                        <td class="plan {{ $plan['options']['popular'] ? 'popular' : '' }}">
+                            <div class="plan-badge">{{ $plan['options']['popular'] ? 'Most Popular' : '&nbsp;' }}</div>
+                            <div class="plan-name">{{ $plan['options']['title'] }}</div>
+                            <div class="plan-price">{{ $plan['options']['price'] }}</div>
+                            <div class="plan-period">per month</div>
+                            <div class="plan-features">
+                                @foreach ($plan['bullets'] as $bullet)
+                                    <span class="tick">&bull;</span> {{ $bullet }}<br>
+                                @endforeach
+                            </div>
+                        </td>
+                    @endforeach
+
                 </tr>
             </table>
         </div>

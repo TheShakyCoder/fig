@@ -125,5 +125,68 @@ return [
 
     'admin' => [
         'password' => env('ADMIN_PASSWORD')
-    ]
+    ],
+
+    'plans' => [
+        'self' => [
+            'options' => [
+                'popular' => true,
+                'price' => "£20",
+                'title' => "Self Managed",
+                'strapline' =>
+                    "You manage your own content through a simple CMS. We build it, you run it.",
+            ],
+            'bullets' => [
+                "Custom designed website",
+                "Domain*, Hosting & Email included",
+                "Simple CMS dashboard",
+                "Silver Ticket Support",
+            ],
+        ],
+        // fig: {
+        //     options: {
+        //         popular: true,
+        //         price: "£20",
+        //         title: "Fig Managed",
+        //         strapline:
+        //             "We handle all your content updates and design changes for you.",
+        //     },
+        //     bullets: [
+        //         "Everything in Self Managed",
+        //         "We update your content for you",
+        //         "Unlimited content changes",
+        //         "Silver Ticket Support",
+        //     ],
+        // },
+        'developed' => [
+            'options' => [
+                'popular' => false,
+                'price' => "£100",
+                'title' => "Fig Developed",
+                'strapline' =>
+                    "Shopping Carts, ERPs and more.",
+            ],
+            'bullets' => [
+                "Everything in Self Managed",
+                "Gold Ticket Support",
+                "Guaranteed 3 hours Minimum Development Time",
+                "Pro-active Advice and Feedback",
+            ],
+        ],
+        'consultant' => [
+            'options' => [
+                'popular' => false,
+                'price' => "£500",
+                'title' => "Fractional Consultantcy",
+                'strapline' =>
+                    "Ideas brought to life on the web.",
+            ],
+            'bullets' => [
+                "Everything in Fig Developed",
+                "Board-Level Strategic Advice",
+                "Backed by 25 Years of Experience",
+                "Guaranteed 15 hours Minimum Development Time",
+            ],
+        ],
+    ],
 ];

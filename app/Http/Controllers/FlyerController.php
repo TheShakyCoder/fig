@@ -24,6 +24,7 @@ class FlyerController extends Controller
             'business' => $business,
             'qrDataUri' => $qrDataUri,
             'previewUrl' => $previewUrl,
+            'plans' => config('app.plans'),
         ])->setPaper('a4');
 
         $filename = str($business->name)->slug() . '-flyer.pdf';

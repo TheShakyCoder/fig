@@ -12,8 +12,7 @@ Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
+        'plans' => config('app.plans'),
     ]);
 });
 
@@ -35,6 +34,7 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::get('/preview/{business}', function (\App\Models\Business $business) {
     return \Inertia\Inertia::render('Preview', [
         'business' => $business->only('name', 'domain'),
+        'plans' => config('app.plans'),
     ]);
 })->name('preview');
 

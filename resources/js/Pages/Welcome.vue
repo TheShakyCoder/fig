@@ -9,6 +9,7 @@ defineProps({
     canRegister: {
         type: Boolean,
     },
+    plans: Object,
 });
 
 const form = useForm({
@@ -18,53 +19,6 @@ const form = useForm({
     message: "",
 });
 
-const managed = ref({
-    self: {
-        options: {
-            popular: true,
-            price: "£20",
-            title: "Self Managed",
-            strapline:
-                "You manage your own content through a simple CMS. We build it, you run it.",
-        },
-        bullets: [
-            "Custom designed website",
-            "Domain*, Hosting & SSL included",
-            "Simple CMS dashboard",
-            "Ticket support",
-        ],
-    },
-    fig: {
-        options: {
-            popular: false,
-            price: "£50",
-            title: "Fig Managed",
-            strapline:
-                "We handle all your content updates and design changes for you.",
-        },
-        bullets: [
-            "Everything in Self Managed",
-            "We update your content for you",
-            "Unlimited content changes",
-            "Priority ticket support",
-        ],
-    },
-    developed: {
-        options: {
-            popular: false,
-            price: "£200",
-            title: "Fig Developed",
-            strapline:
-                "Bespoke development, custom features, and dedicated support.",
-        },
-        bullets: [
-            "Everything in Fig Managed",
-            "Custom development",
-            "Bespoke features & integrations",
-            "Dedicated support & performance optimisation",
-        ],
-    },
-});
 const submitted = ref(false);
 
 const submit = () => {
@@ -296,7 +250,7 @@ const submit = () => {
 
                 <div class="mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     <!-- Managed -->
-                    <template v-for="plan in managed">
+                    <template v-for="plan in plans">
                         <div
                             class="relative rounded-2xl bg-gray-900 p-8 sm:p-10"
                             :class="[
