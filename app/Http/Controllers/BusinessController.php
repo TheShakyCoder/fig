@@ -41,7 +41,7 @@ class BusinessController extends Controller
             'email' => 'required|email|max:255',
             'phone' => 'nullable|string|max:50',
             'plan' => 'nullable|in:self_managed,fig_managed,fig_developed',
-            'status' => 'nullable|in:active,suspended,cancelled',
+            'status' => 'nullable|in:unknown,active,suspended,cancelled',
             'notes' => 'nullable|string',
         ]);
 
@@ -73,7 +73,7 @@ class BusinessController extends Controller
             'email' => 'required|email|max:255',
             'phone' => 'nullable|string|max:50',
             'plan' => 'nullable|in:self_managed,fig_managed,fig_developed',
-            'status' => 'nullable|in:active,suspended,cancelled',
+            'status' => 'nullable|in:unknown,active,suspended,cancelled',
             'notes' => 'nullable|string',
         ]);
 
