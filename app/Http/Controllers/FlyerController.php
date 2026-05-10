@@ -13,7 +13,7 @@ class FlyerController extends Controller
     {
         $previewUrl = route('preview', $business);
 
-        $qrCode = new QrCode(data: $previewUrl, size: 250, margin: 0);
+        $qrCode = new QrCode(data: $business->domain, size: 250, margin: 0);
 
         $writer = new PngWriter();
         $result = $writer->write($qrCode);
