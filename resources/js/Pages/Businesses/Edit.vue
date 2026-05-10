@@ -13,7 +13,7 @@ const form = useForm({
     email: props.business.email,
     phone: props.business.phone || '',
     plan: props.business.plan || 'self_managed',
-    status: props.business.status || 'active',
+    status: props.business.status || 'unknown',
     notes: props.business.notes || '',
 });
 

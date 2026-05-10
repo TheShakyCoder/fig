@@ -9,7 +9,7 @@ const form = useForm({
     email: '',
     phone: '',
     plan: 'self_managed',
-    status: 'active',
+    status: 'unknown',
     notes: '',
 });
 
