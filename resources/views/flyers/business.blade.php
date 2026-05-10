@@ -297,7 +297,7 @@
                     
                     @foreach ($plans as $plan)
                         <td class="plan {{ $plan['options']['popular'] ? 'popular' : '' }}">
-                            <div class="plan-badge">{{ $plan['options']['popular'] ? 'Most Popular' : '&nbsp;' }}</div>
+                            <div class="plan-badge">{{ $plan['options']['popular'] ? 'Most Popular' : '' }}</div>
                             <div class="plan-name">{{ $plan['options']['title'] }}</div>
                             <div class="plan-price">{{ $plan['options']['price'] }}</div>
                             <div class="plan-period">per month</div>
