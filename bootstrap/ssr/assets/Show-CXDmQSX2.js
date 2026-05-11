@@ -1,4 +1,4 @@
-import { t as _sfc_main$1 } from "./AuthenticatedLayout-Di3BRzMd.js";
+import { t as _sfc_main$1 } from "./AuthenticatedLayout-BKEfoJpg.js";
 import { Head, Link, router } from "@inertiajs/vue3";
 import { createBlock, createCommentVNode, createTextVNode, createVNode, openBlock, toDisplayString, unref, useSSRContext, withCtx } from "vue";
 import { ssrInterpolate, ssrRenderAttr, ssrRenderClass, ssrRenderComponent } from "vue/server-renderer";

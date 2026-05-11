@@ -159,7 +159,7 @@ var _sfc_main = {
 		const showingNavigationDropdown = ref(false);
 		return (_ctx, _push, _parent, _attrs) => {
 			_push(`<div${ssrRenderAttrs(_attrs)}><div class="min-h-screen bg-gray-950"><nav class="border-b border-white/5 bg-gray-900"><div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div class="flex h-16 justify-between"><div class="flex"><div class="flex shrink-0 items-center">`);
-			_push(ssrRenderComponent(unref(Link), { href: _ctx.route("dashboard") }, {
+			_push(ssrRenderComponent(unref(Link), { href: _ctx.route("home") }, {
 				default: withCtx((_, _push, _parent, _scopeId) => {
 					if (_push) _push(`<span class="text-xl font-bold tracking-tight text-white"${_scopeId}>fig<span class="text-emerald-400"${_scopeId}>.</span></span>`);
 					else return [createVNode("span", { class: "text-xl font-bold tracking-tight text-white" }, [createTextVNode("fig"), createVNode("span", { class: "text-emerald-400" }, ".")])];
