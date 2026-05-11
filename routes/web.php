@@ -14,7 +14,7 @@ Route::get('/', function () {
         'canRegister' => Route::has('register'),
         'plans' => config('app.plans'),
     ]);
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -30,6 +30,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+Route::get('/terms', fn () => Inertia::render('Legal/Terms'))->name('terms');
+Route::get('/privacy', fn () => Inertia::render('Legal/Privacy'))->name('privacy');
 
 Route::get('/preview/{business}', function (\App\Models\Business $business) {
     return \Inertia\Inertia::render('Preview', [

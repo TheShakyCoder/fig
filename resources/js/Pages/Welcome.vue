@@ -640,10 +640,13 @@ const submit = () => {
                 <span class="text-sm font-bold tracking-tight text-white"
                     >fig<span class="text-emerald-400">.</span></span
                 >
-                <p class="text-xs text-gray-500">
-                    &copy; {{ new Date().getFullYear() }} Fig. All rights
-                    reserved.
-                </p>
+                <div class="flex items-center gap-4">
+                    <Link href="/privacy" class="text-xs text-gray-500 hover:text-gray-400">Privacy</Link>
+                    <Link href="/terms" class="text-xs text-gray-500 hover:text-gray-400">Terms</Link>
+                    <p class="text-xs text-gray-500">
+                        &copy; {{ new Date().getFullYear() }} Fig Limited
+                    </p>
+                </div>
             </div>
         </footer>
     </div>
