@@ -110,7 +110,7 @@
             top: 99mm;
             left: 0;
             right: 0;
-            height: 80mm;
+            height: 70mm;
             padding: 15mm 12mm;
             background: #ffffff;
 
@@ -194,11 +194,27 @@
             position: absolute;
             left: 0;
             right: 0;
-            top: 210mm;
+            top: 205mm;
             height: 99mm;
-            padding: 12mm 20mm 15mm;
+            padding: 10mm 20mm 15mm;
             background: #f9fafb;
             border-top: 1px solid #e5e7eb;
+        }
+
+        .cta-box {
+            width: 170mm;
+            height: 30mm;
+            border: 2px solid #059669;
+            border-radius: 6mm;
+            margin-bottom: 5mm;
+            background: #f0fdf4;
+            display: block;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 33mm;
+            font-size: 14pt;
+            font-weight: bold;
+            color: #059669;
         }
 
         .cta-title {
@@ -211,7 +227,7 @@
         .cta-subtitle {
             font-size: 10pt;
             color: #6b7280;
-            margin-bottom: 10mm;
+            margin-bottom: 4mm;
         }
 
         .contact-grid {
@@ -220,20 +236,20 @@
 
         .contact-grid td {
             vertical-align: top;
-            padding-bottom: 3mm;
+            padding-bottom: 1mm;
             width: 50%;
         }
 
         .contact-label {
-            font-size: 7pt;
+            font-size: 6pt;
             color: #9ca3af;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 1mm;
+            margin-bottom: 0.5mm;
         }
 
         .contact-value {
-            font-size: 13pt;
+            font-size: 9pt;
             color: #059669;
             font-weight: bold;
         }
@@ -401,6 +417,10 @@
 
         <!-- ── Bottom third: contact ── -->
         <div class="bottom">
+            <div class="cta-box">
+                Enjoy this treat while you ponder our offer.
+            </div>
+
             <div class="cta-title">Like what you see?</div>
             <div class="cta-subtitle">Get in touch and we can have your site live in no time. No pressure, just a chat.</div>
 
@@ -408,7 +428,7 @@
                 <tr>
                     <td>
                         <div class="contact-label">Email</div>
-                        <div class="contact-value">support@fig.limited</div>
+                        <div class="contact-value">sharif.khan@fig.limited</div>
                     </td>
                     <td>
                         <div class="contact-label">WhatsApp</div>

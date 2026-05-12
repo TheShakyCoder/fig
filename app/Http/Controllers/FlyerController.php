@@ -29,6 +29,6 @@ class FlyerController extends Controller
 
         $filename = str($business->name)->slug() . '-flyer.pdf';
 
-        return $pdf->download($filename);
+        return $pdf->stream($filename);
     }
 }
