@@ -173,8 +173,8 @@
         }
 
         .plan-period {
-            font-size: 8pt;
-            color: #9ca3af;
+            font-size: 9pt;
+            color: #4b515c;
             margin-bottom: 4mm;
         }
 
@@ -242,7 +242,7 @@
 
         .contact-label {
             font-size: 6pt;
-            color: #9ca3af;
+            color: #4b515c;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 0.5mm;
