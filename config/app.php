@@ -131,7 +131,7 @@ return [
         'self' => [
             'options' => [
                 'popular' => true,
-                'price' => "£10",
+                'price' => "£20",
                 'title' => "Self Managed",
                 'strapline' =>
                     "You manage your own content through a simple CMS. We build it, you run it.",
