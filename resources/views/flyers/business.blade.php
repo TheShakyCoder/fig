@@ -386,6 +386,7 @@
             <div class="hero-qr">
                 <img src="{{ $qrDataUri }}" alt="QR Code">
                 <p>Scan to preview</p>
+                <p>{{ $business->domain }}</p>
             </div>
         </div>
 

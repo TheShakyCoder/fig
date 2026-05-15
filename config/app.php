@@ -130,7 +130,7 @@ return [
     'plans' => [
         'self' => [
             'options' => [
-                'popular' => true,
+                'popular' => false,
                 'price' => "£20",
                 'title' => "Self Managed",
                 'strapline' =>
@@ -145,7 +145,7 @@ return [
         ],
         'developed' => [
             'options' => [
-                'popular' => false,
+                'popular' => true,
                 'price' => "£50",
                 'title' => "Fig Developed",
                 'strapline' =>
