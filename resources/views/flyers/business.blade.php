@@ -380,7 +380,7 @@
                     We've taken the liberty of putting together a website for
                     <strong>{{ $business->name }}</strong>. Scan the QR code with your
                     phone to take a look &mdash; there's no commitment, and we'd love
-                    to hear what you think.
+                    to hear what you think. (This website is NOT publicly accessible.)
                 </div>
             </div>
             <div class="hero-qr">
