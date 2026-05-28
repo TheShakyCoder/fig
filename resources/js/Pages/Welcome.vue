@@ -12,6 +12,13 @@ defineProps({
     plans: Object,
 });
 
+const demos = [
+    {
+        title: "Sweet Retailer",
+        url: "https://sweets.stupidly.uk/",
+    },
+];
+
 const form = useForm({
     name: "",
     email: "",
@@ -235,6 +242,79 @@ const submit = () => {
             </p>
         </section>
 
+        <!-- Demos -->
+        <section id="demos" class="border-t border-white/5 py-20 sm:py-28">
+            <div class="mx-auto max-w-6xl px-6">
+                <div class="mx-auto max-w-2xl text-center">
+                    <p
+                        class="mb-4 inline-block rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-1 text-xs font-medium uppercase tracking-widest text-emerald-400"
+                    >
+                        Demos
+                    </p>
+                    <h2 class="text-2xl font-bold text-white sm:text-3xl">
+                        See what we can build
+                    </h2>
+                    <p class="mt-4 text-gray-400">
+                        A few sample sites to give you a feel for our work.
+                    </p>
+                </div>
+
+                <div
+                    class="mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3"
+                >
+                    <a
+                        v-for="demo in demos"
+                        :key="demo.url"
+                        :href="demo.url"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="group overflow-hidden rounded-2xl border border-white/5 bg-gray-900 transition hover:border-emerald-500/30"
+                    >
+                        <div
+                            class="relative aspect-[4/3] overflow-hidden bg-gray-950"
+                        >
+                            <img
+                                :src="`https://image.thum.io/get/viewportWidth/1200/width/1200/crop/900/${demo.url}`"
+                                :alt="demo.title"
+                                loading="lazy"
+                                class="absolute inset-0 h-full w-full object-cover object-top"
+                            />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-gray-950/40 to-transparent"
+                            ></div>
+                        </div>
+                        <div
+                            class="flex items-center justify-between border-t border-white/5 px-5 py-4"
+                        >
+                            <div>
+                                <p
+                                    class="text-sm font-semibold text-white"
+                                >
+                                    {{ demo.title }}
+                                </p>
+                                <p class="text-xs text-gray-500">
+                                    {{ demo.url.replace(/^https?:\/\//, "").replace(/\/$/, "") }}
+                                </p>
+                            </div>
+                            <svg
+                                class="h-4 w-4 text-gray-500 transition group-hover:text-emerald-400"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                                />
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Pricing -->
         <section id="pricing" class="border-t border-white/5 py-20 sm:py-28">
             <div class="mx-auto max-w-6xl px-6">
@@ -280,6 +360,9 @@ const submit = () => {
                                     >/month</span
                                 >
                             </div>
+                            <p class="mt-1 text-xs text-gray-500">
+                                {{ plan.options.upfront }} upfront
+                            </p>
                             <p
                                 class="mt-4 text-sm leading-relaxed text-gray-400"
                             >

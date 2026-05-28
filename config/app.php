@@ -131,7 +131,8 @@ return [
         'self' => [
             'options' => [
                 'popular' => false,
-                'price' => "£20",
+                'price' => "£19",
+                'upfront' => "£49",
                 'title' => "Self Managed",
                 'strapline' =>
                     "You manage your own content through a simple CMS. We build it, you run it.",
@@ -146,7 +147,8 @@ return [
         'developed' => [
             'options' => [
                 'popular' => true,
-                'price' => "£50",
+                'price' => "£49",
+                'upfront' => "£9",
                 'title' => "Fig Developed",
                 'strapline' =>
                     "Bespoke features and functionality.",
@@ -154,14 +156,14 @@ return [
             'bullets' => [
                 "Everything in Self Managed",
                 "Gold Ticket Support",
-                "Guaranteed up to 2 hours Minimum Development Time",
                 "Pro-active Advice and Feedback",
             ],
         ],
         'consultant' => [
             'options' => [
                 'popular' => false,
-                'price' => "£200",
+                'price' => "£199",
+                'upfront' => "£0",
                 'title' => "Fractional Consultantcy",
                 'strapline' =>
                     "Your on-demand IT expert.",

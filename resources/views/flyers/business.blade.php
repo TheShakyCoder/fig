@@ -175,6 +175,12 @@
         .plan-period {
             font-size: 9pt;
             color: #4b515c;
+            margin-bottom: 1mm;
+        }
+
+        .plan-upfront {
+            font-size: 7pt;
+            color: #6b7280;
             margin-bottom: 4mm;
         }
 
@@ -404,6 +410,7 @@
                             <div class="plan-name">{{ $plan['options']['title'] }}</div>
                             <div class="plan-price">{{ $plan['options']['price'] }}</div>
                             <div class="plan-period">per month</div>
+                            <div class="plan-upfront">{{ $plan['options']['upfront'] }} upfront</div>
                             <div class="plan-features">
                                 @foreach ($plan['bullets'] as $bullet)
                                     <span class="tick">&bull;</span> {{ $bullet }}<br>
