@@ -17,6 +17,14 @@ const demos = [
         title: "Sweet Retailer",
         url: "https://sweets.stupidly.uk/",
     },
+    {
+        title: "Candles Shop",
+        url: "https://candles.stupidly.uk/",
+    },
+    {
+        title: "Accountants",
+        url: "https://accountants.stupidly.uk/",
+    },
 ];
 
 const form = useForm({
