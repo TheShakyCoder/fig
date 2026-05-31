@@ -399,7 +399,7 @@
         <!-- ── Middle third: pricing ── -->
         <div class="middle">
             <div class="section-title">Simple, honest pricing.</div>
-            <div class="section-subtitle">No setup fees. No contracts. Cancel any time.</div>
+            <div class="section-subtitle">No contracts. Cancel any time.</div>
 
             <table class="plans">
                 <tr>
@@ -410,7 +410,9 @@
                             <div class="plan-name">{{ $plan['options']['title'] }}</div>
                             <div class="plan-price">{{ $plan['options']['price'] }}</div>
                             <div class="plan-period">per month</div>
-                            <div class="plan-upfront">{{ $plan['options']['upfront'] }} upfront</div>
+                            @if ($plan['options']['upfront'] != '£0')
+                            <div class="plan-upfront">{{ $plan['options']['upfront'] }} annually for .co.uk domain</div>
+                            @endif
                             <div class="plan-features">
                                 @foreach ($plan['bullets'] as $bullet)
                                     <span class="tick">&bull;</span> {{ $bullet }}<br>
@@ -481,7 +483,7 @@
                     <div class="legal-text">These Terms of Service govern your use of fig.limited and any web design, development, and hosting services provided by Fig Limited, a company registered in England with its principal place of business in Penwortham, Preston, Lancashire. By accessing our Website or using our Services, you agree to be bound by these Terms.</div>
 
                     <div class="legal-section-title">2. Our Services</div>
-                    <div class="legal-text">Fig provides website design, development, and hosting under three plans: <strong>Self Managed</strong> (&pound;20/month) &mdash; design, build, hosting, SSL, email support; you manage content. <strong>Fig Managed</strong> (&pound;50/month) &mdash; everything in Self Managed plus content updates, priority support, monthly analytics. <strong>Fig Developed</strong> (&pound;200/month) &mdash; everything in Fig Managed plus custom development, bespoke features, dedicated support, and performance optimisation.</div>
+                    <div class="legal-text">Fig provides website design, development, and hosting under three plans: <strong>Bronze</strong> (Free, &pound;20/year .co.uk domain) &mdash; design, build, hosting, SSL, email support; you manage content. <strong>Silver</strong> (&pound;20/month) &mdash; everything in Bronze plus custom development, bespoke features, dedicated support, and performance optimisation; no annual fee. <strong>Gold</strong> (&pound;200/month) &mdash; everything in Silver plus a fractional consultant engagement with ongoing strategic guidance and hands-on involvement.</div>
 
                     <div class="legal-section-title">3. Account Registration</div>
                     <div class="legal-text">You agree to provide accurate, complete, and current information when creating an account. You are responsible for maintaining the confidentiality of your login credentials and for all activity under your account.</div>

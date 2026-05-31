@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s https://fig.limited/)",
+      "Bash(curl -s https://fig.limited/ -o /tmp/fig-home.html)",
+      "Read(//tmp/**)",
+      "Bash(grep -o 'id=\"app\"[^>]*>[^<]\\\\{0,200\\\\}' /Users/sharifkhan/.claude/projects/-Users-sharifkhan-Sites-fig/23cbaf97-7cc6-48b0-8b63-78898cb78721/tool-results/btkk1qqps.txt)",
+      "WebFetch(domain:www.crawlably.com)",
+      "Bash(grep -oE \"fetch\\\\\\([^\\)]{0,200}\\\\\\)|/api/[a-zA-Z_/?=&{}'\\\\\"-]*\" /tmp/crawlably.html)",
+      "Bash(curl -s \"https://service.punits.dev/get-action-info?hash=7cdcfaee35085667b1a4fb68db3d461d1f7ad3587a349b773dcb83e343885172\" -o /tmp/run-info.json)",
+      "Bash(curl -s \"https://service.punits.dev/get-static-asset?asset_url=1779984618397_https___fig_limited_.txt\" -o /tmp/js-disabled.html)",
+      "Bash(curl -s \"https://service.punits.dev/get-static-asset?asset_url=1779984633422_https___fig_limited_.txt\" -o /tmp/js-enabled.html)",
+      "Bash(curl -s \"https://service.punits.dev/get-additional-data?asset_url=1779984618397_https___fig_limited_.json\")",
+      "Bash(ddev exec *)"
+    ]
+  }
+}

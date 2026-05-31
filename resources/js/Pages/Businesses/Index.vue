@@ -18,9 +18,9 @@ watch(search, (value) => {
 });
 
 const planLabel = (plan) => ({
-    self_managed: 'Self Managed',
-    fig_managed: 'Fig Managed',
-    fig_developed: 'Fig Developed',
+    bronze: 'Bronze',
+    silver: 'Silver',
+    gold: 'Gold',
 }[plan] || '—');
 
 const statusColor = (status) => ({

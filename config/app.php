@@ -131,16 +131,15 @@ return [
         'self' => [
             'options' => [
                 'popular' => false,
-                'price' => "£19",
-                'upfront' => "£49",
+                'price' => "£0",
+                'upfront' => "£19",
                 'title' => "Self Managed",
                 'strapline' =>
                     "You manage your own content through a simple CMS. We build it, you run it.",
             ],
             'bullets' => [
-                "Custom designed website",
+                "Custom designed 1-page website",
                 "Domain*, Hosting & Email included",
-                "Simple CMS dashboard",
                 "Silver Ticket Support",
             ],
         ],
@@ -148,15 +147,16 @@ return [
             'options' => [
                 'popular' => true,
                 'price' => "£49",
-                'upfront' => "£9",
+                'upfront' => "£0",
                 'title' => "Fig Developed",
                 'strapline' =>
                     "Bespoke features and functionality.",
             ],
             'bullets' => [
                 "Everything in Self Managed",
+                "Multiple Pages and Custom Features",
                 "Gold Ticket Support",
-                "Pro-active Advice and Feedback",
+                "Monthly Catch-up Calls",
             ],
         ],
         'consultant' => [
@@ -172,7 +172,7 @@ return [
                 "Everything in Fig Developed",
                 "Board-Level Strategic Advice",
                 "Backed by 25 Years of Experience",
-                "Offload your IT headaches to us",
+                "Offload all your IT concerns to us",
             ],
         ],
     ],

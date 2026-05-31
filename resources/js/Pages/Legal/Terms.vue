@@ -35,16 +35,16 @@ import { Head, Link } from '@inertiajs/vue3';
           <p class="mb-3 text-sm">Fig provides website design, development, and hosting services under three plans:</p>
           <div class="space-y-3">
             <div class="rounded-xl border border-white/10 p-4">
-              <p class="font-semibold text-white text-sm">Self Managed &mdash; &pound;20/month</p>
-              <p class="mt-1 text-sm">We design and build your website and provide hosting, SSL, and email support. You manage your own content through a simple content management system.</p>
+              <p class="font-semibold text-white text-sm">Bronze &mdash; Free (&pound;20/year .co.uk domain fee)</p>
+              <p class="mt-1 text-sm">We design and build your website and provide hosting, SSL, and email support. You manage your own content through a simple content management system. A &pound;20 annual fee covers your .co.uk domain registration.</p>
             </div>
             <div class="rounded-xl border border-emerald-500/30 p-4">
-              <p class="font-semibold text-white text-sm">Fig Managed &mdash; &pound;50/month</p>
-              <p class="mt-1 text-sm">Everything in Self Managed, plus we handle all content updates and changes on your behalf, with priority support and a monthly analytics report.</p>
+              <p class="font-semibold text-white text-sm">Silver &mdash; &pound;20/month</p>
+              <p class="mt-1 text-sm">Everything in Bronze, plus custom development, bespoke features and integrations, dedicated support, and ongoing performance optimisation. No annual fee.</p>
             </div>
             <div class="rounded-xl border border-white/10 p-4">
-              <p class="font-semibold text-white text-sm">Fig Developed &mdash; &pound;200/month</p>
-              <p class="mt-1 text-sm">Everything in Fig Managed, plus custom development, bespoke features and integrations, dedicated support, and ongoing performance optimisation.</p>
+              <p class="font-semibold text-white text-sm">Gold &mdash; &pound;200/month</p>
+              <p class="mt-1 text-sm">Everything in Silver, plus a fractional consultant engagement: ongoing strategic guidance, regular working sessions, and hands-on involvement in your product and technical decisions.</p>
             </div>
           </div>
         </section>
@@ -69,7 +69,7 @@ import { Head, Link } from '@inertiajs/vue3';
           <h2 class="text-lg font-semibold text-white mb-3">5. Website Design and Development</h2>
           <ul class="list-disc list-inside space-y-2 text-sm">
             <li>We will design and build your website based on the requirements discussed and agreed with you.</li>
-            <li>You are responsible for providing all content (text, images, logos) in a timely manner, unless you are on a Fig Managed or Fig Developed plan.</li>
+            <li>You are responsible for providing all content (text, images, logos) in a timely manner.</li>
             <li>We retain ownership of all design files, source code, and templates until full payment has been received. Upon payment, you receive a licence to use the website for as long as your subscription is active.</li>
             <li>We reserve the right to display a discreet "Powered by Fig" credit on websites we build, unless otherwise agreed in writing.</li>
           </ul>

@@ -81,9 +81,9 @@ defineEmits(["submit"]);
           v-model="form.plan"
           class="mt-1 w-full rounded-xl border border-white/10 bg-gray-800 px-4 py-3 text-sm text-white transition focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50"
         >
-          <option value="self_managed">Self Managed — £20/month</option>
-          <option value="fig_managed">Fig Managed — £50/month</option>
-          <option value="fig_developed">Fig Developed — £200/month</option>
+          <option value="bronze">Bronze — Free (£20/year .co.uk domain)</option>
+          <option value="silver">Silver — £20/month</option>
+          <option value="gold">Gold — £200/month</option>
         </select>
         <InputError class="mt-2" :message="form.errors.plan" />
       </div>

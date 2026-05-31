@@ -8,7 +8,7 @@ const form = useForm({
     domain: '',
     email: '',
     phone: '',
-    plan: 'self_managed',
+    plan: 'bronze',
     status: 'unknown',
     notes: '',
 });

@@ -12,7 +12,7 @@ const form = useForm({
     domain: props.business.domain || '',
     email: props.business.email,
     phone: props.business.phone || '',
-    plan: props.business.plan || 'self_managed',
+    plan: props.business.plan || 'bronze',
     status: props.business.status || 'unknown',
     notes: props.business.notes || '',
 });

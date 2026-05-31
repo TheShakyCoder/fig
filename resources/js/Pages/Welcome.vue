@@ -368,8 +368,8 @@ const submit = () => {
                                     >/month</span
                                 >
                             </div>
-                            <p class="mt-1 text-xs text-gray-500">
-                                {{ plan.options.upfront }} upfront
+                            <p v-if="plan.options.upfront !== '£0'" class="mt-1 text-xs text-gray-500">
+                                {{ plan.options.upfront }} annually for .co.uk domain
                             </p>
                             <p
                                 class="mt-4 text-sm leading-relaxed text-gray-400"

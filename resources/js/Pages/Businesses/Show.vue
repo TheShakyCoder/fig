@@ -7,9 +7,9 @@ const props = defineProps({
 });
 
 const planLabel = (plan) => ({
-    self_managed: 'Self Managed — £20/month',
-    fig_managed: 'Fig Managed — £50/month',
-    fig_developed: 'Fig Developed — £200/month',
+    bronze: 'Bronze — Free (£20/year .co.uk domain)',
+    silver: 'Silver — £20/month',
+    gold: 'Gold — £200/month',
 }[plan] || '—');
 
 const statusColor = (status) => ({
