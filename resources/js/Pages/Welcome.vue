@@ -9,7 +9,6 @@ defineProps({
     canRegister: {
         type: Boolean,
     },
-    plans: Object,
 });
 
 const demos = [
@@ -331,83 +330,61 @@ const submit = () => {
                         Simple, honest pricing
                     </h2>
                     <p class="mt-4 text-gray-400">
-                        All plans include design, build, hosting, and SSL. Pick the
-                        level of support that suits you.
+                        No monthly fees, no surprises. Just a small one-off
+                        design fee and your domain.
                     </p>
                 </div>
 
-                <div class="mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    <!-- Managed -->
-                    <template v-for="plan in plans">
-                        <div
-                            class="relative rounded-2xl bg-gray-900 p-8 sm:p-10"
-                            :class="[
-                                plan.options.popular
-                                    ? 'border-2 border-emerald-500/50'
-                                    : 'border border-white/5',
-                            ]"
+                <div class="mx-auto mt-16 max-w-xl">
+                    <div class="rounded-2xl border-2 border-emerald-500/50 bg-gray-900 p-8 sm:p-10">
+                        <ul class="space-y-6">
+                            <li class="flex items-baseline justify-between gap-4 border-b border-white/5 pb-6">
+                                <div>
+                                    <p class="text-sm font-medium uppercase tracking-wider text-emerald-400">
+                                        Design &amp; Build
+                                    </p>
+                                    <p class="mt-1 text-sm text-gray-400">
+                                        One-off fee to get your site live.
+                                    </p>
+                                </div>
+                                <p class="whitespace-nowrap text-3xl font-bold tracking-tight text-white">
+                                    £49
+                                </p>
+                            </li>
+                            <li class="flex items-baseline justify-between gap-4 border-b border-white/5 pb-6">
+                                <div>
+                                    <p class="text-sm font-medium uppercase tracking-wider text-emerald-400">
+                                        Hosting
+                                    </p>
+                                    <p class="mt-1 text-sm text-gray-400">
+                                        SSL Certificate included.
+                                    </p>
+                                </div>
+                                <p class="whitespace-nowrap text-3xl font-bold tracking-tight text-emerald-400">
+                                    Free
+                                </p>
+                            </li>
+                            <li class="flex items-baseline justify-between gap-4">
+                                <div>
+                                    <p class="text-sm font-medium uppercase tracking-wider text-emerald-400">
+                                        Domain
+                                    </p>
+                                    <p class="mt-1 text-sm text-gray-400">
+                                        .co.uk - annual fee.
+                                    </p>
+                                </div>
+                                <p class="whitespace-nowrap text-3xl font-bold tracking-tight text-gray-300">
+                                    £20
+                                </p>
+                            </li>
+                        </ul>
+                        <a
+                            href="#contact"
+                            class="mt-10 block w-full rounded-lg bg-emerald-500 py-3 text-center text-sm font-semibold text-gray-950 shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-400 hover:shadow-emerald-500/30"
                         >
-                            <div v-if="plan.options.popular" class="absolute -top-3 right-8">
-                                <span
-                                    class="rounded-full bg-emerald-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gray-950"
-                                >
-                                    Popular
-                                </span>
-                            </div>
-                            <h3
-                                class="text-sm font-medium uppercase tracking-wider text-emerald-400"
-                            >
-                                {{ plan.options.title }}
-                            </h3>
-                            <div class="mt-4 flex items-baseline gap-1">
-                                <span
-                                    class="text-5xl font-bold tracking-tight text-white"
-                                    >{{ plan.options.price }}</span
-                                >
-                                <span class="text-lg text-gray-500"
-                                    >/month</span
-                                >
-                            </div>
-                            <p v-if="plan.options.upfront !== '£0'" class="mt-1 text-xs text-gray-500">
-                                {{ plan.options.upfront }} annually for .co.uk domain
-                            </p>
-                            <p
-                                class="mt-4 text-sm leading-relaxed text-gray-400"
-                            >
-                                {{ plan.options.strapline }}
-                            </p>
-                            <ul class="mt-8 space-y-3">
-                                <li
-                                    v-for="bullet in plan.bullets"
-                                    :key="bullet"
-                                    class="flex items-start gap-3 text-sm text-gray-300"
-                                >
-                                    <svg
-                                        class="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-400"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke-width="2"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="m4.5 12.75 6 6 9-13.5"
-                                        />
-                                    </svg>
-                                    {{ bullet }}
-                                </li>
-                            </ul>
-                            <a
-                                href="#contact"
-                                class="mt-10 block w-full rounded-lg py-3 text-center text-sm font-semibold shadow-lg transition"
-                                :class="[plan.options.popular ? 'bg-emerald-500 text-gray-950 shadow-lg shadow-emerald-500/20 hover:bg-emerald-400 hover:shadow-emerald-500/30' : 'border border-white/10 text-white hover:border-white/25 hover:bg-white/5']"
-                            >
-                                Get Started
-                            </a>
-                        </div>
-                    </template>
-
+                            Get Started
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
