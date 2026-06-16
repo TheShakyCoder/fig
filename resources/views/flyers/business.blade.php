@@ -399,28 +399,43 @@
         <!-- ── Middle third: pricing ── -->
         <div class="middle">
             <div class="section-title">Simple, honest pricing.</div>
-            <div class="section-subtitle">No contracts. Cancel any time.</div>
+            <div class="section-subtitle">No monthly fees. Just a small one-off design fee and your domain.</div>
 
             <table class="plans">
                 <tr>
-                    
-                    @foreach ($plans as $plan)
-                        <td class="plan {{ $plan['options']['popular'] ? 'popular' : '' }}">
-                            <div class="plan-badge">{{ $plan['options']['popular'] ? 'Most Popular' : '' }}</div>
-                            <div class="plan-name">{{ $plan['options']['title'] }}</div>
-                            <div class="plan-price">{{ $plan['options']['price'] }}</div>
-                            <div class="plan-period">per month</div>
-                            @if ($plan['options']['upfront'] != '£0')
-                            <div class="plan-upfront">{{ $plan['options']['upfront'] }} annually for .co.uk domain</div>
-                            @endif
-                            <div class="plan-features">
-                                @foreach ($plan['bullets'] as $bullet)
-                                    <span class="tick">&bull;</span> {{ $bullet }}<br>
-                                @endforeach
-                            </div>
-                        </td>
-                    @endforeach
-
+                    <td class="plan">
+                        <div class="plan-badge">One-off</div>
+                        <div class="plan-name">Design &amp; Build</div>
+                        <div class="plan-price">&pound;49</div>
+                        <div class="plan-period">one-off fee</div>
+                        <div class="plan-features">
+                            <span class="tick">&bull;</span> Bespoke design<br>
+                            <span class="tick">&bull;</span> Hand-coded, fast loading<br>
+                            <span class="tick">&bull;</span> Mobile friendly<br>
+                        </div>
+                    </td>
+                    <td class="plan">
+                        <div class="plan-badge">Annual</div>
+                        <div class="plan-name">Domain</div>
+                        <div class="plan-price">from &pound;20</div>
+                        <div class="plan-period">per year</div>
+                        <div class="plan-features">
+                            <span class="tick">&bull;</span> .co.uk &pound;20<br>
+                            <span class="tick">&bull;</span> .com &pound;40<br>
+                            <span class="tick">&bull;</span> .io &pound;70<br>
+                        </div>
+                    </td>
+                    <td class="plan ">
+                        <div class="plan-badge">Included</div>
+                        <div class="plan-name">Hosting</div>
+                        <div class="plan-price">Free</div>
+                        <div class="plan-period">forever</div>
+                        <div class="plan-features">
+                            <span class="tick">&bull;</span> SSL certificate<br>
+                            <span class="tick">&bull;</span> Daily backups<br>
+                            <span class="tick">&bull;</span> Uptime monitoring<br>
+                        </div>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -438,7 +453,7 @@
                 <tr>
                     <td>
                         <div class="contact-label">Email</div>
-                        <div class="contact-value">sharif.khan@fig.limited</div>
+                        <div class="contact-value">sharif.khan@fig.ltd.uk</div>
                     </td>
                     <td>
                         <div class="contact-label">WhatsApp</div>
@@ -448,7 +463,7 @@
                 <tr>
                     <td>
                         <div class="contact-label">Web</div>
-                        <div class="contact-value">fig.limited</div>
+                        <div class="contact-value">fig.ltd.uk</div>
                     </td>
                     <td>
                         <div class="contact-label">Based in</div>
@@ -470,7 +485,7 @@
     <div class="page-legal">
         <div class="legal-header">
             <div class="logo">fig<span class="dot">.</span></div>
-            <p>Terms of Service &amp; Privacy Policy &mdash; fig.limited &mdash; Last updated: {{ date('j F Y') }}</p>
+            <p>Terms of Service &amp; Privacy Policy &mdash; fig.ltd.uk &mdash; Last updated: {{ date('j F Y') }}</p>
         </div>
 
         <table class="legal-columns">
@@ -480,16 +495,16 @@
                     <div class="legal-doc-title">Terms of Service</div>
 
                     <div class="legal-section-title">1. Introduction</div>
-                    <div class="legal-text">These Terms of Service govern your use of fig.limited and any web design, development, and hosting services provided by Fig Limited, a company registered in England with its principal place of business in Penwortham, Preston, Lancashire. By accessing our Website or using our Services, you agree to be bound by these Terms.</div>
+                    <div class="legal-text">These Terms of Service govern your use of fig.ltd.uk and any web design, development, and hosting services provided by Fig Limited, a company registered in England with its principal place of business in Penwortham, Preston, Lancashire. By accessing our Website or using our Services, you agree to be bound by these Terms.</div>
 
                     <div class="legal-section-title">2. Our Services</div>
-                    <div class="legal-text">Fig provides website design, development, and hosting under three plans: <strong>Bronze</strong> (Free, &pound;20/year .co.uk domain) &mdash; design, build, hosting, SSL, email support; you manage content. <strong>Silver</strong> (&pound;20/month) &mdash; everything in Bronze plus custom development, bespoke features, dedicated support, and performance optimisation; no annual fee. <strong>Gold</strong> (&pound;200/month) &mdash; everything in Silver plus a fractional consultant engagement with ongoing strategic guidance and hands-on involvement.</div>
+                    <div class="legal-text">Fig provides website design, development, and hosting. <strong>Design &amp; Build</strong> &mdash; a one-off fee of &pound;49 to design and build your bespoke site. <strong>Hosting</strong> &mdash; included free of charge for the duration of your engagement with Fig, including SSL, daily backups, and uptime monitoring. <strong>Domain</strong> &mdash; an annual fee charged at cost depending on the TLD chosen (e.g. .co.uk from &pound;20/year, .com from &pound;40/year, .io from &pound;70/year).</div>
 
                     <div class="legal-section-title">3. Account Registration</div>
                     <div class="legal-text">You agree to provide accurate, complete, and current information when creating an account. You are responsible for maintaining the confidentiality of your login credentials and for all activity under your account.</div>
 
                     <div class="legal-section-title">4. Payment and Billing</div>
-                    <div class="legal-text">All prices are in GBP and inclusive of VAT where applicable. Subscriptions are billed monthly in advance. We may change prices with 30 days' written notice. We do not store payment card details; all payments are processed securely by our third-party provider.</div>
+                    <div class="legal-text">All prices are in GBP and inclusive of VAT where applicable. The design fee is payable up front before work begins. Domain registration and renewal are billed annually. We may change prices with 30 days' written notice. We do not store payment card details; all payments are processed securely by our third-party provider.</div>
 
                     <div class="legal-section-title">5. Design, Development &amp; IP</div>
                     <div class="legal-text">We design and build your website based on agreed requirements. We retain ownership of design files, source code, and templates until full payment. Upon payment, you receive a licence to use the website for the duration of your subscription. You retain ownership of content you provide; by providing it you grant Fig a non-exclusive licence to use it for delivering the Services.</div>
@@ -501,7 +516,7 @@
                     <div class="legal-text">You agree not to use the Services unlawfully, upload harmful or infringing content, attempt unauthorised access to our systems, or send unsolicited bulk communications.</div>
 
                     <div class="legal-section-title">8. Cancellation</div>
-                    <div class="legal-text">You may cancel at any time by emailing support@fig.limited. Cancellation takes effect at the end of your current billing period. No partial refunds. Your website will be taken offline; we retain data for 30 days. We may suspend or terminate Services immediately for breach of these Terms or non-payment.</div>
+                    <div class="legal-text">You may cancel at any time by emailing support@fig.ltd.uk. The design fee is non-refundable once work has commenced. Domain fees already paid for the current year are non-refundable. Your website will be taken offline; we retain data for 30 days. We may suspend or terminate Services immediately for breach of these Terms or non-payment.</div>
 
                     <div class="legal-section-title">9. Limitation of Liability</div>
                     <div class="legal-text">To the maximum extent permitted by law, Fig Limited shall not be liable for any indirect, incidental, special, consequential, or punitive damages. Our total liability shall not exceed the amount you have paid in the 12 months preceding the claim. Nothing excludes liability for death, personal injury, or fraud.</div>
@@ -518,7 +533,7 @@
                     <div class="legal-doc-title">Privacy Policy</div>
 
                     <div class="legal-section-title">1. Who We Are</div>
-                    <div class="legal-text">Fig Limited is a web design and hosting company registered in England. We are the data controller responsible for your personal data. Contact us at support@fig.limited or by WhatsApp on 07515 382159.</div>
+                    <div class="legal-text">Fig Limited is a web design and hosting company registered in England. We are the data controller responsible for your personal data. Contact us at support@fig.ltd.uk or by WhatsApp on 07515 382159.</div>
 
                     <div class="legal-section-title">2. What Data We Collect</div>
                     <div class="legal-text"><strong>Information you provide:</strong> Name, email, phone, postcode via our contact form; business details as a client; payment information (processed by our payment provider &mdash; we do not store card details). <strong>Information collected automatically:</strong> IP address, browser type, OS, device info; pages visited, time on pages, navigation paths; cookie data (see Section 7).</div>
@@ -539,7 +554,7 @@
                     <div class="legal-text">We use essential cookies only: <strong>cookie_consent</strong> (stores your preference, 12 months); <strong>XSRF-TOKEN</strong> (CSRF protection, session); <strong>fig_session</strong> (login session, session). A consent banner is shown on first visit. You can control cookies through your browser settings.</div>
 
                     <div class="legal-section-title">8. Your Rights Under GDPR</div>
-                    <div class="legal-text">You have the right to: access your data; rectify inaccurate data; request erasure; restrict processing; data portability; object to processing; and withdraw consent at any time. Email support@fig.limited to exercise these rights &mdash; we will respond within one month. You may also lodge a complaint with the ICO at ico.org.uk.</div>
+                    <div class="legal-text">You have the right to: access your data; rectify inaccurate data; request erasure; restrict processing; data portability; object to processing; and withdraw consent at any time. Email support@fig.ltd.uk to exercise these rights &mdash; we will respond within one month. You may also lodge a complaint with the ICO at ico.org.uk.</div>
 
                     <div class="legal-section-title">9. Data Security</div>
                     <div class="legal-text">We use SSL/TLS encryption, secure hosting, regular security updates, and access controls to protect your data against unauthorised access, alteration, disclosure, or destruction.</div>
@@ -551,13 +566,13 @@
                     <div class="legal-text">Our services are not directed at individuals under 16. We do not knowingly collect data from children. We may update this policy from time to time; changes will be posted with an updated revision date.</div>
 
                     <div class="legal-section-title">12. Contact Us</div>
-                    <div class="legal-text"><strong>Fig Limited</strong> &mdash; Email: support@fig.limited &mdash; WhatsApp: 07515 382159 &mdash; Web: fig.limited &mdash; Based in Penwortham, Preston, Lancashire.</div>
+                    <div class="legal-text"><strong>Fig Limited</strong> &mdash; Email: support@fig.ltd.uk &mdash; WhatsApp: 07515 382159 &mdash; Web: fig.ltd.uk &mdash; Based in Penwortham, Preston, Lancashire.</div>
                 </td>
             </tr>
         </table>
 
         <div class="legal-footer">
-            &copy; {{ date('Y') }} Fig Limited &mdash; Web design &amp; hosting &mdash; fig.limited &mdash; Full terms available at fig.limited/terms &mdash; Full privacy policy at fig.limited/privacy
+            &copy; {{ date('Y') }} Fig Limited &mdash; Web design &amp; hosting &mdash; fig.ltd.uk &mdash; Full terms available at fig.ltd.uk/terms &mdash; Full privacy policy at fig.ltd.uk/privacy
         </div>
     </div>
 </body>

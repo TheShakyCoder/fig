@@ -19,32 +19,32 @@ import { Head, Link } from '@inertiajs/vue3';
 
       <!-- Header -->
       <h1 class="text-3xl font-bold text-white sm:text-4xl">Terms of Service</h1>
-      <p class="mt-2 text-sm text-gray-500">Last updated: 11 May 2026</p>
+      <p class="mt-2 text-sm text-gray-500">Last updated: 16 June 2026</p>
 
       <!-- Content -->
       <article class="mt-10 space-y-8 text-gray-300 leading-relaxed">
 
         <section>
           <h2 class="text-lg font-semibold text-white mb-3">1. Introduction</h2>
-          <p class="text-sm">These Terms of Service ("Terms") govern your use of the website fig.limited ("Website") and any web design, development, and hosting services ("Services") provided by Fig Limited ("Fig", "we", "us", or "our"), a company registered in England with its principal place of business in Penwortham, Preston, Lancashire.</p>
+          <p class="text-sm">These Terms of Service ("Terms") govern your use of the website fig.ltd.uk ("Website") and any web design, development, and hosting services ("Services") provided by Fig Limited ("Fig", "we", "us", or "our"), a company registered in England with its principal place of business in Penwortham, Preston, Lancashire.</p>
           <p class="mt-3 text-sm">By accessing our Website or using our Services, you agree to be bound by these Terms. If you do not agree, please do not use our Website or Services.</p>
         </section>
 
         <section>
           <h2 class="text-lg font-semibold text-white mb-3">2. Our Services</h2>
-          <p class="mb-3 text-sm">Fig provides website design, development, and hosting services under three plans:</p>
+          <p class="mb-3 text-sm">Fig provides website design, development, and hosting services. Our pricing is made up of three simple components:</p>
           <div class="space-y-3">
-            <div class="rounded-xl border border-white/10 p-4">
-              <p class="font-semibold text-white text-sm">Bronze &mdash; Free (&pound;20/year .co.uk domain fee)</p>
-              <p class="mt-1 text-sm">We design and build your website and provide hosting, SSL, and email support. You manage your own content through a simple content management system. A &pound;20 annual fee covers your .co.uk domain registration.</p>
-            </div>
             <div class="rounded-xl border border-emerald-500/30 p-4">
-              <p class="font-semibold text-white text-sm">Silver &mdash; &pound;20/month</p>
-              <p class="mt-1 text-sm">Everything in Bronze, plus custom development, bespoke features and integrations, dedicated support, and ongoing performance optimisation. No annual fee.</p>
+              <p class="font-semibold text-white text-sm">Design &amp; Build &mdash; &pound;49 one-off</p>
+              <p class="mt-1 text-sm">A one-off fee to design and build your bespoke website. Hand-coded, mobile friendly, and tailored to your business. Paid up front before work begins.</p>
             </div>
             <div class="rounded-xl border border-white/10 p-4">
-              <p class="font-semibold text-white text-sm">Gold &mdash; &pound;200/month</p>
-              <p class="mt-1 text-sm">Everything in Silver, plus a fractional consultant engagement: ongoing strategic guidance, regular working sessions, and hands-on involvement in your product and technical decisions.</p>
+              <p class="font-semibold text-white text-sm">Hosting &mdash; Free</p>
+              <p class="mt-1 text-sm">Hosting is included free of charge for the duration of your engagement with Fig, with SSL certificate, daily backups, and uptime monitoring.</p>
+            </div>
+            <div class="rounded-xl border border-white/10 p-4">
+              <p class="font-semibold text-white text-sm">Domain &mdash; from &pound;20/year</p>
+              <p class="mt-1 text-sm">An annual fee charged at cost depending on the TLD chosen (e.g. .co.uk from &pound;20/year, .com from &pound;40/year, .io from &pound;70/year). Renewed annually for as long as you wish to keep the domain.</p>
             </div>
           </div>
         </section>
@@ -58,7 +58,9 @@ import { Head, Link } from '@inertiajs/vue3';
           <h2 class="text-lg font-semibold text-white mb-3">4. Payment and Billing</h2>
           <ul class="list-disc list-inside space-y-2 text-sm">
             <li>All prices are quoted in British Pounds Sterling (&pound;) and are inclusive of VAT where applicable.</li>
-            <li>Subscriptions are billed monthly in advance. Your first payment is due when your plan is activated.</li>
+            <li>The Design &amp; Build fee is payable up front before work begins.</li>
+            <li>Domain registration and renewal fees are billed annually and are charged at cost based on the TLD chosen.</li>
+            <li>Hosting is provided free of charge for the duration of your engagement with Fig.</li>
             <li>We may change our prices with 30 days' written notice. Continued use of the Services after a price change constitutes acceptance of the new price.</li>
             <li>If a payment fails, we will notify you and provide a reasonable grace period. Continued non-payment may result in suspension of your Services.</li>
             <li>We do not store your payment card details. All payments are processed securely through our third-party payment provider.</li>
@@ -70,7 +72,7 @@ import { Head, Link } from '@inertiajs/vue3';
           <ul class="list-disc list-inside space-y-2 text-sm">
             <li>We will design and build your website based on the requirements discussed and agreed with you.</li>
             <li>You are responsible for providing all content (text, images, logos) in a timely manner.</li>
-            <li>We retain ownership of all design files, source code, and templates until full payment has been received. Upon payment, you receive a licence to use the website for as long as your subscription is active.</li>
+            <li>We retain ownership of all design files, source code, and templates until full payment has been received. Upon payment, you receive a licence to use the website for as long as your engagement with Fig is active.</li>
             <li>We reserve the right to display a discreet "Powered by Fig" credit on websites we build, unless otherwise agreed in writing.</li>
           </ul>
         </section>
@@ -102,8 +104,9 @@ import { Head, Link } from '@inertiajs/vue3';
         <section>
           <h2 class="text-lg font-semibold text-white mb-3">9. Cancellation and Termination</h2>
           <ul class="list-disc list-inside space-y-2 text-sm">
-            <li>You may cancel your subscription at any time by contacting us at <a href="mailto:support@fig.limited" class="text-emerald-400 hover:text-emerald-300">support@fig.limited</a>. Cancellation takes effect at the end of your current billing period.</li>
-            <li>No refunds are provided for partial months or unused portions of a billing period.</li>
+            <li>You may cancel your engagement with Fig at any time by contacting us at <a href="mailto:support@fig.ltd.uk" class="text-emerald-400 hover:text-emerald-300">support@fig.ltd.uk</a>.</li>
+            <li>The Design &amp; Build fee is non-refundable once work has commenced.</li>
+            <li>Domain fees already paid for the current year are non-refundable. You may request a transfer of your domain to another registrar at any time.</li>
             <li>Upon cancellation, your website will be taken offline. We will retain your data for 30 days, during which time you may request a copy of your website files.</li>
             <li>We reserve the right to suspend or terminate your Services immediately if you breach these Terms, fail to make payment after reasonable notice, or use the Services for unlawful purposes.</li>
           </ul>
@@ -139,7 +142,7 @@ import { Head, Link } from '@inertiajs/vue3';
         <section>
           <h2 class="text-lg font-semibold text-white mb-3">15. Governing Law and Disputes</h2>
           <p class="text-sm">These Terms are governed by and construed in accordance with the laws of England and Wales. Any disputes arising from or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
-          <p class="mt-3 text-sm">We encourage you to contact us first at <a href="mailto:support@fig.limited" class="text-emerald-400 hover:text-emerald-300">support@fig.limited</a> to resolve any disputes informally before pursuing formal legal proceedings.</p>
+          <p class="mt-3 text-sm">We encourage you to contact us first at <a href="mailto:support@fig.ltd.uk" class="text-emerald-400 hover:text-emerald-300">support@fig.ltd.uk</a> to resolve any disputes informally before pursuing formal legal proceedings.</p>
         </section>
 
         <section>
@@ -157,9 +160,9 @@ import { Head, Link } from '@inertiajs/vue3';
           <p class="text-sm">If you have any questions about these Terms, please contact us:</p>
           <div class="mt-3 text-sm">
             <p class="font-semibold text-white">Fig Limited</p>
-            <p>Email: <a href="mailto:support@fig.limited" class="text-emerald-400 hover:text-emerald-300">support@fig.limited</a></p>
+            <p>Email: <a href="mailto:support@fig.ltd.uk" class="text-emerald-400 hover:text-emerald-300">support@fig.ltd.uk</a></p>
             <p>WhatsApp: 07515 382159</p>
-            <p>Web: <a href="https://fig.limited" class="text-emerald-400 hover:text-emerald-300">fig.limited</a></p>
+            <p>Web: <a href="https://fig.ltd.uk" class="text-emerald-400 hover:text-emerald-300">fig.ltd.uk</a></p>
           </div>
         </section>
       </article>

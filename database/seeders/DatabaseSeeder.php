@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'name' => 'Fig Support',
-            'email' => 'support@fig.limited',
+            'email' => 'support@fig.ltd.uk',
             'password' => Hash::make(config('app.admin.password')),
         ]);
 

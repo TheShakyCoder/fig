@@ -19,7 +19,7 @@ import { Head, Link } from '@inertiajs/vue3';
 
       <!-- Header -->
       <h1 class="text-3xl font-bold text-white sm:text-4xl">Privacy Policy</h1>
-      <p class="mt-2 text-sm text-gray-500">Last updated: 11 May 2026</p>
+      <p class="mt-2 text-sm text-gray-500">Last updated: 16 June 2026</p>
 
       <!-- Content -->
       <article class="mt-10 space-y-8 text-gray-300 leading-relaxed">
@@ -27,7 +27,7 @@ import { Head, Link } from '@inertiajs/vue3';
         <section>
           <h2 class="text-lg font-semibold text-white mb-3">1. Who We Are</h2>
           <p>Fig Limited ("Fig", "we", "us", or "our") is a web design and hosting company registered in England. Our registered address is Penwortham, Preston, Lancashire. We are the data controller responsible for your personal data.</p>
-          <p class="mt-3">If you have any questions about this privacy policy or how we handle your data, please contact us at <a href="mailto:support@fig.limited" class="text-emerald-400 hover:text-emerald-300">support@fig.limited</a> or by WhatsApp on 07515 382159.</p>
+          <p class="mt-3">If you have any questions about this privacy policy or how we handle your data, please contact us at <a href="mailto:support@fig.ltd.uk" class="text-emerald-400 hover:text-emerald-300">support@fig.ltd.uk</a> or by WhatsApp on 07515 382159.</p>
         </section>
 
         <section>
@@ -52,9 +52,9 @@ import { Head, Link } from '@inertiajs/vue3';
         <section>
           <h2 class="text-lg font-semibold text-white mb-3">3. How We Use Your Data</h2>
           <ul class="space-y-2 text-sm">
-            <li><strong class="text-white">To provide our services:</strong> Designing, building, hosting, and managing your website as agreed in your plan.</li>
+            <li><strong class="text-white">To provide our services:</strong> Designing, building, hosting, and managing your website as agreed with you.</li>
             <li><strong class="text-white">To respond to enquiries:</strong> Replying to messages submitted through our contact form, email, or WhatsApp.</li>
-            <li><strong class="text-white">To process payments:</strong> Managing subscriptions and invoicing for our hosting plans.</li>
+            <li><strong class="text-white">To process payments:</strong> Invoicing for the Design &amp; Build fee and annual domain renewals.</li>
             <li><strong class="text-white">To improve our website:</strong> Analysing how visitors use our site so we can make it better.</li>
             <li><strong class="text-white">To comply with legal obligations:</strong> Meeting our legal and regulatory requirements under UK and EU law.</li>
           </ul>
@@ -76,7 +76,7 @@ import { Head, Link } from '@inertiajs/vue3';
           <p class="mb-3 text-sm">We do not sell, rent, or trade your personal data. We may share your data with:</p>
           <ul class="list-disc list-inside space-y-1 text-sm">
             <li>Hosting infrastructure providers who help us deliver our services (servers, CDN, DNS).</li>
-            <li>Payment processors for handling subscription payments securely.</li>
+            <li>Payment processors for handling payments securely.</li>
             <li>Email service providers for transactional communications.</li>
             <li>Professional advisers including accountants and legal advisers where necessary.</li>
             <li>Law enforcement or regulatory bodies where required by law.</li>
@@ -145,7 +145,7 @@ import { Head, Link } from '@inertiajs/vue3';
             <li><strong class="text-white">Right to object:</strong> You can object to processing based on legitimate interests or for direct marketing purposes.</li>
             <li><strong class="text-white">Right to withdraw consent:</strong> Where we rely on consent, you can withdraw it at any time without affecting the lawfulness of prior processing.</li>
           </ul>
-          <p class="mt-3 text-sm">To exercise any of these rights, please email us at <a href="mailto:support@fig.limited" class="text-emerald-400 hover:text-emerald-300">support@fig.limited</a>. We will respond within one month. If you are not satisfied with how we handle your data, you have the right to lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" class="text-emerald-400 hover:text-emerald-300" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+          <p class="mt-3 text-sm">To exercise any of these rights, please email us at <a href="mailto:support@fig.ltd.uk" class="text-emerald-400 hover:text-emerald-300">support@fig.ltd.uk</a>. We will respond within one month. If you are not satisfied with how we handle your data, you have the right to lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" class="text-emerald-400 hover:text-emerald-300" target="_blank" rel="noopener">ico.org.uk</a>.</p>
         </section>
 
         <section>
@@ -173,9 +173,9 @@ import { Head, Link } from '@inertiajs/vue3';
           <p class="text-sm">If you have any questions about this privacy policy, please contact us:</p>
           <div class="mt-3 text-sm">
             <p class="font-semibold text-white">Fig Limited</p>
-            <p>Email: <a href="mailto:support@fig.limited" class="text-emerald-400 hover:text-emerald-300">support@fig.limited</a></p>
+            <p>Email: <a href="mailto:support@fig.ltd.uk" class="text-emerald-400 hover:text-emerald-300">support@fig.ltd.uk</a></p>
             <p>WhatsApp: 07515 382159</p>
-            <p>Web: <a href="https://fig.limited" class="text-emerald-400 hover:text-emerald-300">fig.limited</a></p>
+            <p>Web: <a href="https://fig.ltd.uk" class="text-emerald-400 hover:text-emerald-300">fig.ltd.uk</a></p>
           </div>
         </section>
       </article>

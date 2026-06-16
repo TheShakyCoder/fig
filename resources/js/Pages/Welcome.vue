@@ -1,6 +1,6 @@
 <script setup>
 import { Head, Link, useForm } from "@inertiajs/vue3";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 defineProps({
     canLogin: {
@@ -10,6 +10,21 @@ defineProps({
         type: Boolean,
     },
 });
+
+const domainGroups = [
+    {
+        price: 20,
+        tlds: [".co.uk", ".uk", ".org.uk", ".me.uk", ".ltd.uk"],
+    },
+    {
+        price: 40,
+        tlds: [".com", ".net", ".org", ".biz", ".me", ".info"],
+    },
+    {
+        price: 70,
+        tlds: [".co", ".tv", ".eco", ".io"],
+    },
+];
 
 const demos = [
     {
@@ -26,12 +41,21 @@ const demos = [
     },
 ];
 
+const domainOptions = domainGroups.flatMap((g) =>
+    g.tlds.map((tld) => ({ tld, price: g.price }))
+);
+
 const form = useForm({
     name: "",
     email: "",
     postcode: "",
     message: "",
+    domain: ".co.uk",
 });
+
+const selectedDomainPrice = computed(
+    () => domainOptions.find((o) => o.tld === form.domain)?.price ?? 0
+);
 
 const submitted = ref(false);
 
@@ -117,8 +141,7 @@ const submit = () => {
                     class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-gray-400"
                 >
                     We build clean, fast websites and host them for you. No
-                    hidden fees, no nonsense. Pick the plan that fits how you
-                    work.
+                    hidden fees, no nonsense. Just pick a domain.
                 </p>
                 <div
                     class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
@@ -208,8 +231,7 @@ const submit = () => {
                             Reliable Hosting
                         </h3>
                         <p class="mt-2 text-sm leading-relaxed text-gray-400">
-                            Fast, secure hosting with SSL, backups, monitoring
-                            and a domain* included. Your site stays online — we
+                            Fast, secure hosting with a domain included. Your site stays online — we
                             handle the rest.
                         </p>
                     </div>
@@ -237,16 +259,11 @@ const submit = () => {
                             Ongoing Support
                         </h3>
                         <p class="mt-2 text-sm leading-relaxed text-gray-400">
-                            Need a change? On the managed plan we handle updates
-                            for you. On self-managed, you get a simple CMS to do
-                            it yourself.
+                            Need a change? Let's talk about it.
                         </p>
                     </div>
                 </div>
             </div>
-            <p class="mt-10 text-center text-sm text-gray-500">
-                *Domains available are dependent on the plan you choose.
-            </p>
         </section>
 
         <!-- Demos -->
@@ -364,18 +381,35 @@ const submit = () => {
                                     Free
                                 </p>
                             </li>
-                            <li class="flex items-baseline justify-between gap-4">
-                                <div>
-                                    <p class="text-sm font-medium uppercase tracking-wider text-emerald-400">
-                                        Domain
-                                    </p>
-                                    <p class="mt-1 text-sm text-gray-400">
-                                        .co.uk - annual fee.
+                            <li>
+                                <div class="flex items-baseline justify-between gap-4">
+                                    <div>
+                                        <p class="text-sm font-medium uppercase tracking-wider text-emerald-400">
+                                            Domain
+                                        </p>
+                                        <p class="mt-1 text-sm text-gray-400">
+                                            {{ form.domain }} — annual fee.
+                                        </p>
+                                    </div>
+                                    <p class="whitespace-nowrap text-3xl font-bold tracking-tight text-gray-300">
+                                        £{{ selectedDomainPrice }}
                                     </p>
                                 </div>
-                                <p class="whitespace-nowrap text-3xl font-bold tracking-tight text-gray-300">
-                                    £20
-                                </p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <button
+                                        v-for="opt in domainOptions"
+                                        :key="opt.tld"
+                                        type="button"
+                                        @click="form.domain = opt.tld"
+                                        class="rounded-full border px-3 py-1 text-xs transition"
+                                        :class="form.domain === opt.tld
+                                            ? 'border-emerald-500/50 bg-emerald-500/10 text-emerald-300'
+                                            : 'border-white/10 bg-gray-800 text-gray-400 hover:border-white/25 hover:text-gray-200'"
+                                    >
+                                        {{ opt.tld }}
+                                        <span class="ml-1 text-gray-500">£{{ opt.price }}</span>
+                                    </button>
+                                </div>
                             </li>
                         </ul>
                         <a
@@ -594,6 +628,23 @@ const submit = () => {
                                 If you're based in the Penwortham area, we'd
                                 love to come and visit you.
                             </p>
+                            <div class="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-gray-800 px-4 py-3">
+                                <div>
+                                    <p class="text-xs uppercase tracking-wider text-emerald-400">
+                                        Chosen domain
+                                    </p>
+                                    <p class="mt-0.5 text-sm text-white">
+                                        {{ form.domain }}
+                                        <span class="text-gray-500">— £{{ selectedDomainPrice }}/year</span>
+                                    </p>
+                                </div>
+                                <a
+                                    href="#pricing"
+                                    class="text-xs text-gray-400 underline-offset-2 transition hover:text-white hover:underline"
+                                >
+                                    Change
+                                </a>
+                            </div>
                             <div class="relative">
                                 <textarea
                                     v-model="form.message"
@@ -643,7 +694,7 @@ const submit = () => {
                 <!-- Contact details -->
                 <div class="mt-10 grid gap-4 sm:grid-cols-2">
                     <a
-                        href="mailto:support@fig.limited"
+                        href="mailto:support@fig.ltd.uk"
                         class="flex items-center gap-4 rounded-2xl border border-white/5 bg-gray-900 p-5 transition hover:border-white/10"
                     >
                         <div
@@ -666,7 +717,7 @@ const submit = () => {
                         <div>
                             <p class="text-xs text-gray-500">Email us</p>
                             <p class="text-sm font-medium text-white">
-                                support@fig.limited
+                                support@fig.ltd.uk
                             </p>
                         </div>
                     </a>

@@ -14,6 +14,7 @@ class ContactController extends Controller
             'email' => 'required|email|max:255',
             'postcode' => 'nullable|string|max:10',
             'message' => 'nullable|string|max:2000',
+            'domain' => 'nullable|string|max:50',
         ]);
 
         Contact::create($validated);
