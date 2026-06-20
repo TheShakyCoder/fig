@@ -200,13 +200,18 @@
             position: absolute;
             left: 0;
             right: 0;
-            top: 205mm;
+            top: 200mm;
             height: 99mm;
             padding: 10mm 20mm 15mm;
             background: #f9fafb;
             border-top: 1px solid #e5e7eb;
         }
 
+        .cta-box-blurb {
+            font-size: 9pt;
+            color: #374151;
+            margin-bottom: 2mm;
+        }
         .cta-box {
             width: 170mm;
             height: 30mm;
@@ -386,7 +391,7 @@
                     We've taken the liberty of putting together a website for
                     <strong>{{ $business->name }}</strong>. Scan the QR code with your
                     phone to take a look &mdash; there's no commitment, and we'd love
-                    to hear what you think. (This website is NOT publicly accessible.)
+                    to hear what you think. (This website is for illustration purposes only.)
                 </div>
             </div>
             <div class="hero-qr">
@@ -442,8 +447,11 @@
 
         <!-- ── Bottom third: contact ── -->
         <div class="bottom">
-            <div class="cta-box">
+            <div class="cta-box-blurb">
                 Enjoy this treat while you ponder our offer.
+            </div>
+            <div class="cta-box">
+                
             </div>
 
             <div class="cta-title">Like what you see?</div>
