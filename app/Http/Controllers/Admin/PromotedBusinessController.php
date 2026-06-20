@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Business;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Writer\PngWriter;
+use App\Http\Controllers\Controller;
 
-class FlyerController extends Controller
+class PromotedBusinessController extends Controller
 {
-    public function __invoke(Business $business)
+    public function show(Business $business)
     {
-        $previewUrl = route('preview', $business);
+        $previewUrl = route('admin.promoted-businesses.show', $business);
 
         $qrCode = new QrCode(data: $business->domain, size: 250, margin: 0);
 
@@ -20,13 +21,13 @@ class FlyerController extends Controller
 
         $qrDataUri = $result->getDataUri();
 
-        $pdf = Pdf::loadView('flyers.business', [
+        $pdf = Pdf::loadView('admin.promoted-businesses.show', [
             'business' => $business,
             'qrDataUri' => $qrDataUri,
             'previewUrl' => $previewUrl,
         ])->setPaper('a4');
 
-        $filename = str($business->name)->slug() . '-flyer.pdf';
+        $filename = str($business->name)->slug() . '-promoted-business.pdf';
 
         return $pdf->stream($filename);
     }

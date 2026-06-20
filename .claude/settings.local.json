@@ -12,7 +12,10 @@
       "Bash(curl -s \"https://service.punits.dev/get-static-asset?asset_url=1779984633422_https___fig_limited_.txt\" -o /tmp/js-enabled.html)",
       "Bash(curl -s \"https://service.punits.dev/get-additional-data?asset_url=1779984618397_https___fig_limited_.json\")",
       "Bash(ddev exec *)",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Read(//private/tmp/**)",
+      "Bash(rm -rf claude-501/*/tasks/*)",
+      "Bash(mount)"
     ]
   }
 }

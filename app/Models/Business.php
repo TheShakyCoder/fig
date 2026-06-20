@@ -9,10 +9,5 @@ class Business extends Model
     protected $fillable = [
         'name',
         'domain',
-        'email',
-        'phone',
-        'plan',
-        'status',
-        'notes',
     ];
 }

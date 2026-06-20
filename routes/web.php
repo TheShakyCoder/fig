@@ -1,10 +1,7 @@
 <?php
 
-use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\FlyerController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -21,12 +18,20 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::resource('businesses', BusinessController::class);
-    Route::get('/businesses/{business}/flyer', FlyerController::class)->name('businesses.flyer');
+
+    Route::middleware('is_admin')->prefix('admin')->name('admin.')->group(function () {
+        Route::get('/', function () {
+            return Inertia::render('Admin/Dashboard');
+        })->name('admin.dashboard');
+        
+        Route::resource('businesses', \App\Http\Controllers\Admin\BusinessController::class);
+        Route::get('/promoted-businesses/{business}', [\App\Http\Controllers\Admin\PromotedBusinessController::class, 'show'])->name('promoted-businesses.show');
+    });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 });
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');

@@ -3,35 +3,34 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import BusinessForm from './Partials/BusinessForm.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 
+const props = defineProps({
+    business: Object,
+});
+
 const form = useForm({
-    name: '',
-    domain: '',
-    email: '',
-    phone: '',
-    plan: 'bronze',
-    status: 'unknown',
-    notes: '',
+    name: props.business.name,
+    domain: props.business.domain || '',
 });
 
 const submit = () => {
-    form.post(route('businesses.store'));
+    form.put(route('admin.businesses.update', props.business.id));
 };
 </script>
 
 <template>
-    <Head title="Add Business" />
+    <Head :title="`Edit ${business.name}`" />
 
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-white">
-                Add Business
+                Edit {{ business.name }}
             </h2>
         </template>
 
         <div class="py-8">
             <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
                 <div class="rounded-2xl border border-white/5 bg-gray-900 p-6 sm:p-8">
-                    <BusinessForm :form="form" submit-label="Create Business" @submit="submit" />
+                    <BusinessForm :form="form" submit-label="Update Business" @submit="submit" />
                 </div>
             </div>
         </div>

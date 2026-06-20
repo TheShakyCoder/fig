@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('postcode', 10)->nullable();
+            $table->string('domain', 50)->nullable();
             $table->text('message')->nullable();
             $table->timestamps();
         });

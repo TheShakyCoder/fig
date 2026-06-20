@@ -12,11 +12,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('domain')->nullable();
-            $table->string('email');
-            $table->string('phone')->nullable();
-            $table->enum('plan', ['bronze', 'silver', 'gold'])->nullable();
-            $table->enum('status', ['unknown', 'active', 'suspended', 'cancelled'])->default('unknown');
-            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

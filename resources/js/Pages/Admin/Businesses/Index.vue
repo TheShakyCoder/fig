@@ -11,27 +11,15 @@ const props = defineProps({
 const search = ref(props.filters?.search || '');
 
 watch(search, (value) => {
-    router.get(route('businesses.index'), { search: value }, {
+    router.get(route('admin.businesses.index'), { search: value }, {
         preserveState: true,
         replace: true,
     });
 });
 
-const planLabel = (plan) => ({
-    bronze: 'Bronze',
-    silver: 'Silver',
-    gold: 'Gold',
-}[plan] || '—');
-
-const statusColor = (status) => ({
-    active: 'bg-emerald-500/10 text-emerald-400',
-    suspended: 'bg-amber-500/10 text-amber-400',
-    cancelled: 'bg-red-500/10 text-red-400',
-}[status] || 'text-gray-400');
-
 const destroy = (id) => {
     if (confirm('Are you sure you want to delete this business?')) {
-        router.delete(route('businesses.destroy', id));
+        router.delete(route('admin.businesses.destroy', id));
     }
 };
 </script>
@@ -46,7 +34,7 @@ const destroy = (id) => {
                     Businesses
                 </h2>
                 <Link
-                    :href="route('businesses.create')"
+                    :href="route('admin.businesses.create')"
                     class="rounded-xl bg-emerald-500 px-4 py-2 text-sm font-semibold text-gray-950 transition hover:bg-emerald-400"
                 >
                     Add Business
@@ -80,10 +68,7 @@ const destroy = (id) => {
                         <thead class="border-b border-white/5 text-xs uppercase tracking-wider text-gray-500">
                             <tr>
                                 <th class="px-6 py-4">Name</th>
-                                <th class="px-6 py-4 hidden sm:table-cell">Domain</th>
-                                <th class="px-6 py-4 hidden md:table-cell">Email</th>
-                                <th class="px-6 py-4 hidden lg:table-cell">Plan</th>
-                                <th class="px-6 py-4">Status</th>
+                                <th class="px-6 py-4">Domain</th>
                                 <th class="px-6 py-4 text-right">Actions</th>
                             </tr>
                         </thead>
@@ -95,32 +80,18 @@ const destroy = (id) => {
                             >
                                 <td class="px-6 py-4">
                                     <Link
-                                        :href="route('businesses.show', business.id)"
+                                        :href="route('admin.businesses.show', business.id)"
                                         class="font-medium text-white hover:text-emerald-400 transition"
                                     >
                                         {{ business.name }}
                                     </Link>
                                 </td>
-                                <td class="px-6 py-4 text-gray-400 hidden sm:table-cell">
+                                <td class="px-6 py-4 text-gray-400">
                                     {{ business.domain || '—' }}
-                                </td>
-                                <td class="px-6 py-4 text-gray-400 hidden md:table-cell">
-                                    {{ business.email }}
-                                </td>
-                                <td class="px-6 py-4 hidden lg:table-cell">
-                                    <span class="text-gray-400">{{ planLabel(business.plan) }}</span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span
-                                        :class="statusColor(business.status)"
-                                        class="inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium capitalize"
-                                    >
-                                        {{ business.status }}
-                                    </span>
                                 </td>
                                 <td class="px-6 py-4 text-right">
                                     <Link
-                                        :href="route('businesses.edit', business.id)"
+                                        :href="route('admin.businesses.edit', business.id)"
                                         class="text-gray-400 transition hover:text-white mr-3"
                                     >
                                         Edit
@@ -134,7 +105,7 @@ const destroy = (id) => {
                                 </td>
                             </tr>
                             <tr v-if="businesses.data.length === 0">
-                                <td colspan="6" class="px-6 py-12 text-center text-gray-500">
+                                <td colspan="3" class="px-6 py-12 text-center text-gray-500">
                                     No businesses found.
                                 </td>
                             </tr>
