@@ -67,6 +67,20 @@ const destroy = () => {
                                 <span v-else class="text-gray-600">—</span>
                             </dd>
                         </div>
+                        <div class="sm:col-span-2">
+                            <dt class="text-sm text-gray-500">Address</dt>
+                            <dd class="mt-1 text-white whitespace-pre-line">
+                                <template v-if="business.address">{{ business.address }}</template>
+                                <span v-else class="text-gray-600">—</span>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt class="text-sm text-gray-500">Postcode</dt>
+                            <dd class="mt-1 text-white">
+                                <template v-if="business.postcode">{{ business.postcode }}</template>
+                                <span v-else class="text-gray-600">—</span>
+                            </dd>
+                        </div>
                     </dl>
                 </div>
 

@@ -6,6 +6,8 @@ import { Head, useForm } from '@inertiajs/vue3';
 const form = useForm({
     name: '',
     domain: '',
+    address: '',
+    postcode: '',
 });
 
 const submit = () => {

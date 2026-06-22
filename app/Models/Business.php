@@ -9,5 +9,7 @@ class Business extends Model
     protected $fillable = [
         'name',
         'domain',
+        'address',
+        'postcode',
     ];
 }

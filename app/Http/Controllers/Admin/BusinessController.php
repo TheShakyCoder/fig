@@ -38,6 +38,8 @@ class BusinessController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'domain' => 'nullable|string|max:255',
+            'address' => 'nullable|string',
+            'postcode' => 'nullable|string|max:10',
         ]);
 
         Business::create($validated);
@@ -65,6 +67,8 @@ class BusinessController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'domain' => 'nullable|string|max:255',
+            'address' => 'nullable|string',
+            'postcode' => 'nullable|string|max:10',
         ]);
 
         $business->update($validated);

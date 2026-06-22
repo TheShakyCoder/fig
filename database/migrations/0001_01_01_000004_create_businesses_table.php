@@ -12,6 +12,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('domain')->nullable();
+            $table->text('address')->nullable();
+            $table->string('postcode', 10)->nullable();
             $table->timestamps();
         });
     }

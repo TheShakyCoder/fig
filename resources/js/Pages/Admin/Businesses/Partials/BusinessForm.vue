@@ -45,6 +45,33 @@ defineEmits(["submit"]);
         />
         <InputError class="mt-2" :message="form.errors.domain" />
       </div>
+
+      <!-- Address -->
+      <div class="sm:col-span-2">
+        <InputLabel for="address" value="Address" />
+        <textarea
+          id="address"
+          v-model="form.address"
+          rows="3"
+          placeholder="123 High Street, London"
+          class="mt-1 block w-full rounded-xl border border-white/10 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-500 transition focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50"
+        />
+        <InputError class="mt-2" :message="form.errors.address" />
+      </div>
+
+      <!-- Postcode -->
+      <div>
+        <InputLabel for="postcode" value="Postcode" />
+        <TextInput
+          id="postcode"
+          type="text"
+          class="mt-1 block w-full"
+          v-model="form.postcode"
+          placeholder="SW1A 1AA"
+          maxlength="10"
+        />
+        <InputError class="mt-2" :message="form.errors.postcode" />
+      </div>
     </div>
 
     <div class="flex items-center justify-end gap-4">

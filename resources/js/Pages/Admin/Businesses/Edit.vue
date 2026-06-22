@@ -10,6 +10,8 @@ const props = defineProps({
 const form = useForm({
     name: props.business.name,
     domain: props.business.domain || '',
+    address: props.business.address || '',
+    postcode: props.business.postcode || '',
 });
 
 const submit = () => {
