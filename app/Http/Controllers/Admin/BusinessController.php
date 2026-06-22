@@ -17,6 +17,8 @@ class BusinessController extends Controller
             ->when($request->search, fn ($q, $search) => $q
                 ->where('name', 'like', "%{$search}%")
                 ->orWhere('domain', 'like', "%{$search}%")
+                ->orWhere('address', 'like', "%{$search}%")
+                ->orWhere('postcode', 'like', "%{$search}%")
             )
             ->latest()
             ->paginate(10)

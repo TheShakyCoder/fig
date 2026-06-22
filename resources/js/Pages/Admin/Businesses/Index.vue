@@ -69,6 +69,8 @@ const destroy = (id) => {
                             <tr>
                                 <th class="px-6 py-4">Name</th>
                                 <th class="px-6 py-4">Domain</th>
+                                <th class="px-6 py-4">Address</th>
+                                <th class="px-6 py-4">Postcode</th>
                                 <th class="px-6 py-4 text-right">Actions</th>
                             </tr>
                         </thead>
@@ -89,6 +91,12 @@ const destroy = (id) => {
                                 <td class="px-6 py-4 text-gray-400">
                                     {{ business.domain || '—' }}
                                 </td>
+                                <td class="px-6 py-4 text-gray-400 whitespace-pre-line">
+                                    {{ business.address || '—' }}
+                                </td>
+                                <td class="px-6 py-4 text-gray-400">
+                                    {{ business.postcode || '—' }}
+                                </td>
                                 <td class="px-6 py-4 text-right">
                                     <Link
                                         :href="route('admin.businesses.edit', business.id)"
@@ -105,7 +113,7 @@ const destroy = (id) => {
                                 </td>
                             </tr>
                             <tr v-if="businesses.data.length === 0">
-                                <td colspan="3" class="px-6 py-12 text-center text-gray-500">
+                                <td colspan="5" class="px-6 py-12 text-center text-gray-500">
                                     No businesses found.
                                 </td>
                             </tr>
