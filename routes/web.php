@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
             return Inertia::render('Admin/Dashboard');
         })->name('admin.dashboard');
         
+        Route::get('/businesses/report', [\App\Http\Controllers\Admin\BusinessController::class, 'report'])->name('businesses.report');
         Route::resource('businesses', \App\Http\Controllers\Admin\BusinessController::class);
         Route::get('/promoted-businesses/{business}', [\App\Http\Controllers\Admin\PromotedBusinessController::class, 'show'])->name('promoted-businesses.show');
     });

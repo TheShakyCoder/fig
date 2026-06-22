@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -11,16 +12,21 @@ use App\Models\Business;
 
 class BusinessController extends Controller
 {
-    public function index(Request $request): Response
+    private function filtered(Request $request)
     {
-        $businesses = Business::query()
+        return Business::query()
             ->when($request->search, fn ($q, $search) => $q
                 ->where('name', 'like', "%{$search}%")
                 ->orWhere('domain', 'like', "%{$search}%")
                 ->orWhere('address', 'like', "%{$search}%")
                 ->orWhere('postcode', 'like', "%{$search}%")
             )
-            ->latest()
+            ->latest();
+    }
+
+    public function index(Request $request): Response
+    {
+        $businesses = $this->filtered($request)
             ->paginate(10)
             ->withQueryString();
 
@@ -28,6 +34,21 @@ class BusinessController extends Controller
             'businesses' => $businesses,
             'filters' => $request->only('search'),
         ]);
+    }
+
+    public function report(Request $request)
+    {
+        $businesses = $this->filtered($request)->get();
+
+        $pdf = Pdf::loadView('admin.businesses.report', [
+            'businesses' => $businesses,
+            'search' => $request->search,
+            'generatedAt' => now(),
+        ])->setPaper('a4', 'landscape');
+
+        $filename = 'businesses-report-' . now()->format('Y-m-d') . '.pdf';
+
+        return $pdf->stream($filename);
     }
 
     public function create(): Response

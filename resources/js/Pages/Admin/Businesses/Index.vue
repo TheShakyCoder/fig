@@ -1,7 +1,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, router } from '@inertiajs/vue3';
-import { ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 
 const props = defineProps({
     businesses: Object,
@@ -9,6 +9,11 @@ const props = defineProps({
 });
 
 const search = ref(props.filters?.search || '');
+
+const reportUrl = computed(() => {
+    const params = search.value ? { search: search.value } : {};
+    return route('admin.businesses.report', params);
+});
 
 watch(search, (value) => {
     router.get(route('admin.businesses.index'), { search: value }, {
@@ -33,12 +38,21 @@ const destroy = (id) => {
                 <h2 class="text-xl font-semibold leading-tight text-white">
                     Businesses
                 </h2>
-                <Link
-                    :href="route('admin.businesses.create')"
-                    class="rounded-xl bg-emerald-500 px-4 py-2 text-sm font-semibold text-gray-950 transition hover:bg-emerald-400"
-                >
-                    Add Business
-                </Link>
+                <div class="flex items-center gap-3">
+                    <a
+                        :href="reportUrl"
+                        target="_blank"
+                        class="rounded-xl border border-white/10 bg-gray-800 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-700"
+                    >
+                        Download Report
+                    </a>
+                    <Link
+                        :href="route('admin.businesses.create')"
+                        class="rounded-xl bg-emerald-500 px-4 py-2 text-sm font-semibold text-gray-950 transition hover:bg-emerald-400"
+                    >
+                        Add Business
+                    </Link>
+                </div>
             </div>
         </template>
 
