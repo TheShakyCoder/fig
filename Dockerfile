@@ -4,7 +4,11 @@ FROM composer:2 AS composer
 WORKDIR /app
 
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --no-scripts --no-interaction --prefer-dist --ignore-platform-reqs
+# Retry: codeload.github.com intermittently 400s on unauthenticated dist
+# downloads. Set COMPOSER_AUTH (github-oauth) as a build env to avoid throttling.
+RUN composer install --no-dev --no-scripts --no-interaction --prefer-dist --ignore-platform-reqs \
+    || { echo "retry 1..."; sleep 5; composer install --no-dev --no-scripts --no-interaction --prefer-dist --ignore-platform-reqs; } \
+    || { echo "retry 2..."; sleep 10; composer install --no-dev --no-scripts --no-interaction --prefer-dist --ignore-platform-reqs; }
 
 COPY . .
 RUN composer dump-autoload --optimize
