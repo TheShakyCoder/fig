@@ -30,14 +30,32 @@ const demos = [
     {
         title: "Sweet Retailer",
         url: "https://sweets.stupidly.uk/",
+        image: "/demos/sweets.webp",
     },
     {
         title: "Candles Shop",
         url: "https://candles.stupidly.uk/",
+        image: "/demos/candles.webp",
     },
     {
         title: "Accountants",
         url: "https://accountants.stupidly.uk/",
+        image: "/demos/accountants.webp",
+    },
+    {
+        title: "Nail Salon",
+        url: "https://nails.stupidly.uk/",
+        image: "/demos/nails.webp",
+    },
+    {
+        title: "Coffee Bar",
+        url: "https://coffeebar.stupidly.uk/",
+        image: "/demos/coffeebar.webp",
+    },
+    {
+        title: "Restaurant",
+        url: "https://restaurant.stupidly.uk/",
+        image: "/demos/restaurant.webp",
     },
 ];
 
@@ -298,7 +316,7 @@ const submit = () => {
                             class="relative aspect-[4/3] overflow-hidden bg-gray-950"
                         >
                             <img
-                                :src="`https://image.thum.io/get/viewportWidth/1200/width/1200/crop/900/${demo.url}`"
+                                :src="demo.image"
                                 :alt="demo.title"
                                 loading="lazy"
                                 class="absolute inset-0 h-full w-full object-cover object-top"

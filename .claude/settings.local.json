@@ -15,7 +15,17 @@
       "Bash(git rm *)",
       "Read(//private/tmp/**)",
       "Bash(rm -rf claude-501/*/tasks/*)",
-      "Bash(mount)"
+      "Bash(mount)",
+      "WebFetch(domain:restaurant.stupidly.uk)",
+      "WebFetch(domain:sweets.stupidly.uk)",
+      "Read(//Applications/Google Chrome.app/Contents/MacOS/**)",
+      "Bash(npx playwright *)",
+      "Bash(export NODE_PATH=/Users/sharifkhan/.npm/_npx/e41f203b7505f1fb/node_modules)",
+      "Bash(node /tmp/inspect.mjs https://restaurant.stupidly.uk/)",
+      "Bash(sed 's#from '\\\\''playwright'\\\\''#from '\\\\''/Users/sharifkhan/.npm/_npx/e41f203b7505f1fb/node_modules/playwright/index.js'\\\\''#' /tmp/inspect.mjs)",
+      "Bash(node /tmp/inspect2.mjs https://restaurant.stupidly.uk/)",
+      "Bash(sips --help)",
+      "Bash(sips --formats)"
     ]
   }
 }
