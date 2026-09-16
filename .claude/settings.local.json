@@ -25,7 +25,9 @@
       "Bash(sed 's#from '\\\\''playwright'\\\\''#from '\\\\''/Users/sharifkhan/.npm/_npx/e41f203b7505f1fb/node_modules/playwright/index.js'\\\\''#' /tmp/inspect.mjs)",
       "Bash(node /tmp/inspect2.mjs https://restaurant.stupidly.uk/)",
       "Bash(sips --help)",
-      "Bash(sips --formats)"
+      "Bash(sips --formats)",
+      "Bash(rtk ls *)",
+      "Bash(rtk grep *)"
     ]
   }
 }
