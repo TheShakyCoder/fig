@@ -62,6 +62,11 @@ const demos = [
         url: "https://florist.stupidly.uk/",
         image: "/demos/florist.webp",
     },
+    {
+        title: "Estate Agent",
+        url: "https://estateagent.stupidly.uk/",
+        image: "/demos/estateagent.webp",
+    },
 ];
 
 const domainOptions = domainGroups.flatMap((g) =>
