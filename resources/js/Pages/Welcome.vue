@@ -72,6 +72,11 @@ const demos = [
         url: "https://hairdresser.stupidly.uk/",
         image: "/demos/hairdresser.webp",
     },
+    {
+        title: "Coffee Roasters",
+        url: "https://coffee.stupidly.uk/",
+        image: "/demos/coffee.webp",
+    },
 ];
 
 const domainOptions = domainGroups.flatMap((g) =>
